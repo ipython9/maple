@@ -1,7 +1,6 @@
 package com.maple.user.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
-import com.alibaba.dubbo.container.page.Page;
 import com.maple.pojo.Edu;
 import com.maple.pojo.Job;
 import com.maple.pojo.Workdata;

@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="maple-user-web:war">
-    <output-path>$PROJECT_DIR$/maple-user-web/target</output-path>
-    <root id="archive" name="maple-user-web.war">
-      <element id="artifact" artifact-name="maple-user-web:war exploded" />
-    </root>
-  </artifact>
-</component>

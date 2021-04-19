@@ -14,8 +14,6 @@
     <packaging>war</packaging>
 
     <name>maple-compy-web Maven Webapp</name>
-    <!-- FIXME change it to the project's website -->
-    <url>http://www.example.com</url>
 
 
     <dependencies>
@@ -95,12 +93,6 @@
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-config</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.csource.fastdfs</groupId>
-            <artifactId>fastdfs</artifactId>
-            <version>1.2</version>
         </dependency>
         <dependency>
             <groupId>commons-fileupload</groupId>
