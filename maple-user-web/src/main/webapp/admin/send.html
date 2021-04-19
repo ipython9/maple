@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- 页面meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>简历资料</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../plugins/adminLTE/css/AdminLTE.css">
+    <link rel="stylesheet" href="../plugins/adminLTE/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../js/layui/css/layui.css">
+    <script src="../plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="../plugins/bootstrap/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="../plugins/angularjs/angular.min.js">  </script>
+    <!-- 分页组件开始 -->
+    <script src="../plugins/angularjs/pagination.js"></script>
+    <link rel="stylesheet" href="../plugins/angularjs/pagination.css">
+    <!-- 分页组件结束 -->
+    <script type="text/javascript" src="../js/base.js">  </script>
+    <script type="text/javascript" src="../js/base_pagination.js">  </script>
+    <script type="text/javascript" src="../js/service/userjobService.js">  </script>
+    <script type="text/javascript" src="../js/controller/baseController.js">  </script>
+    <script type="text/javascript" src="../js/controller/userjobController.js">  </script>
+</head>
+<body class="layui-layout-body" ng-app="maple" ng-controller="userjobController">
+<!-- .box-body -->
+<div class="box-header with-border">
+    <h3 class="box-title">投递简历信息</h3>
+</div>
+
+<div class="box-body">
+
+    <!-- 数据表格 -->
+    <div class="table-box">
+
+        <!--工具栏-->
+        <div class="pull-left">
+            <div class="form-group form-inline">
+                <!--            <div class="btn-group">
+                               <button type="button" class="btn btn-default" title="新建" data-toggle="modal" data-target="#editcompy" ng-click="entity={}" ><i class="fa fa-file-o"></i> 新建</button>
+                               <button type="button" class="btn btn-default" title="删除" ng-click="dele()"><i class="fa fa-trash-o" ></i> 删除</button>
+                               <button type="button" class="btn btn-default" title="刷新" onclick="window.location.reload();"><i class="fa fa-refresh"></i> 刷新</button>
+                           </div> -->
+            </div>
+        </div>
+        <div class="box-tools pull-right">
+            <!--      <div class="has-feedback">
+                     公司名称:<input ng-model="searchEntity.compyname">
+                     <button  class="btn btn-default" ng-click="reloadList()">查询</button>
+                 </div> -->
+        </div>
+        <!--工具栏/-->
+
+        <!--数据列表-->
+        <table id="dataList" class="table table-bordered table-striped table-hover dataTable">
+            <thead>
+            <tr>
+                <th class="sorting">职位名称</th>
+                <th class="sorting">公司</th>
+                <th class="sorting">投递时间</th>
+                <th class="sorting">HR联系电话</th>
+                <th class="sorting">状态</th>
+                <th class="sorting">职位详情</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="entity in list">
+                <!--    <td><input  type="checkbox" ng-click="updateSelection($event, entity.id)" ></td> -->
+                <td>{{entity.job.name}}</td>
+                <td>{{entity.compy.compyname}}</td>
+                <td> {{entity.userjob.createtime}} </td>
+                <td ng-if="entity.userjob.status=='面试'"> {{entity.user.tel}} </td>
+                <td ng-if="entity.userjob.status!='面试'">  HR确认面试后可查看电话 </td>
+                <td> {{entity.userjob.status}} </td>
+
+                <td class="text-center">
+                    <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModal" ng-click="findTwo(entity.job)" >详情</button>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+        <!--数据列表/-->
+        <tm-pagination conf="paginationConf"></tm-pagination>
+
+    </div>
+    <!-- 数据表格 /-->
+
+
+
+
+</div>
+<!-- /.box-body -->
+
+<!-- 编辑窗口 -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" >
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="myModalLabel">招聘信息</h3>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered table-striped"  width="1000px">
+                    <tr>
+                        <td>职位名称</td>
+                        <td><input readonly="readonly"  class="form-control" placeholder="职位名称" ng-model="entity.name">  </td>
+                    </tr>
+                    <tr>
+                        <td>学历要求</td>
+                        <td>
+                            <select class="form-control" readonly="readonly"  ng-model="entity.level">
+                                <option value="初中及以下">初中及以下</option>
+                                <option value="中专">中专</option>
+                                <option value="高中">高中</option>
+                                <option value="大专">大专</option>
+                                <option value="本科">本科</option>
+                                <option value="硕士">硕士</option>
+                                <option value="博士">博士</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>经验要求</td>
+                        <td>       <select class="form-control" readonly="readonly"  ng-model="entity.exp">
+                            <option value="经验不限">经验不限</option>
+                            <option value="1年">1年</option>
+                            <option value="2年">2年</option>
+                            <option value="3年">3年</option>
+                            <option value="5年">5年</option>
+                            <option value="6年及以上">6年及以上</option>
+                        </select> </td>
+                    </tr>
+                    <tr>
+                        <td>行业</td>
+                        <td>       <select class="form-control" readonly="readonly"  ng-model="entity.postionid">
+                            <option value="IT互联网">IT互联网</option>
+                            <option value="金融">金融</option>
+                            <option value="房地产">房地产</option>
+                            <option value="教育培训">教育培训</option>
+                            <option value="汽车">汽车</option>
+                            <option value="娱乐传媒">娱乐传媒</option>
+                            <option value="医疗健康">医疗健康</option>
+                            <option value="法律咨询">法律咨询</option>
+                            <option value="供应链物流">供应链物流</option>
+                            <option value="采购贸易">采购贸易</option>
+                        </select> </td>
+                    </tr>
+                    <tr>
+                        <td>工作地址</td>
+                        <td><input  class="form-control" readonly="readonly" placeholder="工作地址" ng-model="entity.city">  </td>
+                    </tr>
+                    <tr>
+                        <td>最低薪资</td>
+                        <td><input  class="form-control" readonly="readonly" placeholder="最低薪资" ng-model="entity.startpd">  </td>
+                    </tr>
+                    <tr>
+                        <td>最高薪资</td>
+                        <td><input  class="form-control" readonly="readonly" placeholder="最高薪资" ng-model="entity.endpd">  </td>
+                    </tr>
+                    <tr>
+                        <td>工作要求</td>
+                        <td><textarea  class="form-control" readonly="readonly" placeholder="工作要求" rows="10" ng-model="entity.jobreq"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>工作内容</td>
+                        <td><textarea  class="form-control" readonly="readonly" name="2" placeholder="工作内容" rows="10" ng-model="entity.content"></textarea>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+            <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
+        </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+<script src="../js/layui/layui.js" charset="utf-8"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script>
+    layui.use('laydate', function(){
+        var laydate = layui.laydate;
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test1' //指定元素
+        });
+
+        laydate.render({
+            elem: '#test2' //指定元素
+        });
+    });
+</script>
+</html>
+

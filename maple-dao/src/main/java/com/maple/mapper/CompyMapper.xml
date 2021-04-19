@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.maple.mapper.CompyMapper" >
+  <resultMap id="BaseResultMap" type="com.maple.pojo.Compy" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="compyid" property="compyid" jdbcType="VARCHAR" />
+    <result column="compyname" property="compyname" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="picpath" property="picpath" jdbcType="VARCHAR" />
+    <result column="regaddress" property="regaddress" jdbcType="VARCHAR" />
+    <result column="industayid" property="industayid" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="creatime" property="creatime" jdbcType="TIMESTAMP" />
+    <result column="card1" property="card1" jdbcType="VARCHAR" />
+    <result column="card2" property="card2" jdbcType="VARCHAR" />
+    <result column="random1" property="random1" jdbcType="VARCHAR" />
+    <result column="person" property="person" jdbcType="VARCHAR" />
+    <result column="intoduction" property="intoduction" jdbcType="VARCHAR" />
+    <result column="jurisname" property="jurisname" jdbcType="VARCHAR" />
+    <result column="juriscontent" property="juriscontent" jdbcType="VARCHAR" />
+    <result column="jurispic" property="jurispic" jdbcType="VARCHAR" />
+    <result column="persontel" property="persontel" jdbcType="VARCHAR" />
+    <result column="personemail" property="personemail" jdbcType="VARCHAR" />
+    <result column="compytel" property="compytel" jdbcType="VARCHAR" />
+    <result column="juriscard" property="juriscard" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, compyid, compyname, password, picpath, regaddress, industayid, status, creatime, 
+    card1, card2, random1, person, intoduction, jurisname, juriscontent, jurispic, persontel, 
+    personemail, compytel, juriscard
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.maple.pojo.CompyExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from compy
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from compy
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from compy
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.maple.pojo.CompyExample" >
+    delete from compy
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.maple.pojo.Compy" >
+    insert into compy (id, compyid, compyname, 
+      password, picpath, regaddress, 
+      industayid, status, creatime, 
+      card1, card2, random1, 
+      person, intoduction, jurisname, 
+      juriscontent, jurispic, persontel, 
+      personemail, compytel, juriscard
+      )
+    values (#{id,jdbcType=INTEGER}, #{compyid,jdbcType=VARCHAR}, #{compyname,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{picpath,jdbcType=VARCHAR}, #{regaddress,jdbcType=VARCHAR}, 
+      #{industayid,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{creatime,jdbcType=TIMESTAMP}, 
+      #{card1,jdbcType=VARCHAR}, #{card2,jdbcType=VARCHAR}, #{random1,jdbcType=VARCHAR}, 
+      #{person,jdbcType=VARCHAR}, #{intoduction,jdbcType=VARCHAR}, #{jurisname,jdbcType=VARCHAR}, 
+      #{juriscontent,jdbcType=VARCHAR}, #{jurispic,jdbcType=VARCHAR}, #{persontel,jdbcType=VARCHAR}, 
+      #{personemail,jdbcType=VARCHAR}, #{compytel,jdbcType=VARCHAR}, #{juriscard,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.maple.pojo.Compy" >
+    insert into compy
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="compyid != null" >
+        compyid,
+      </if>
+      <if test="compyname != null" >
+        compyname,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="picpath != null" >
+        picpath,
+      </if>
+      <if test="regaddress != null" >
+        regaddress,
+      </if>
+      <if test="industayid != null" >
+        industayid,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="creatime != null" >
+        creatime,
+      </if>
+      <if test="card1 != null" >
+        card1,
+      </if>
+      <if test="card2 != null" >
+        card2,
+      </if>
+      <if test="random1 != null" >
+        random1,
+      </if>
+      <if test="person != null" >
+        person,
+      </if>
+      <if test="intoduction != null" >
+        intoduction,
+      </if>
+      <if test="jurisname != null" >
+        jurisname,
+      </if>
+      <if test="juriscontent != null" >
+        juriscontent,
+      </if>
+      <if test="jurispic != null" >
+        jurispic,
+      </if>
+      <if test="persontel != null" >
+        persontel,
+      </if>
+      <if test="personemail != null" >
+        personemail,
+      </if>
+      <if test="compytel != null" >
+        compytel,
+      </if>
+      <if test="juriscard != null" >
+        juriscard,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="compyid != null" >
+        #{compyid,jdbcType=VARCHAR},
+      </if>
+      <if test="compyname != null" >
+        #{compyname,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="picpath != null" >
+        #{picpath,jdbcType=VARCHAR},
+      </if>
+      <if test="regaddress != null" >
+        #{regaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="industayid != null" >
+        #{industayid,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="creatime != null" >
+        #{creatime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="card1 != null" >
+        #{card1,jdbcType=VARCHAR},
+      </if>
+      <if test="card2 != null" >
+        #{card2,jdbcType=VARCHAR},
+      </if>
+      <if test="random1 != null" >
+        #{random1,jdbcType=VARCHAR},
+      </if>
+      <if test="person != null" >
+        #{person,jdbcType=VARCHAR},
+      </if>
+      <if test="intoduction != null" >
+        #{intoduction,jdbcType=VARCHAR},
+      </if>
+      <if test="jurisname != null" >
+        #{jurisname,jdbcType=VARCHAR},
+      </if>
+      <if test="juriscontent != null" >
+        #{juriscontent,jdbcType=VARCHAR},
+      </if>
+      <if test="jurispic != null" >
+        #{jurispic,jdbcType=VARCHAR},
+      </if>
+      <if test="persontel != null" >
+        #{persontel,jdbcType=VARCHAR},
+      </if>
+      <if test="personemail != null" >
+        #{personemail,jdbcType=VARCHAR},
+      </if>
+      <if test="compytel != null" >
+        #{compytel,jdbcType=VARCHAR},
+      </if>
+      <if test="juriscard != null" >
+        #{juriscard,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.maple.pojo.CompyExample" resultType="java.lang.Integer" >
+    select count(*) from compy
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update compy
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.compyid != null" >
+        compyid = #{record.compyid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.compyname != null" >
+        compyname = #{record.compyname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.password != null" >
+        password = #{record.password,jdbcType=VARCHAR},
+      </if>
+      <if test="record.picpath != null" >
+        picpath = #{record.picpath,jdbcType=VARCHAR},
+      </if>
+      <if test="record.regaddress != null" >
+        regaddress = #{record.regaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.industayid != null" >
+        industayid = #{record.industayid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.creatime != null" >
+        creatime = #{record.creatime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.card1 != null" >
+        card1 = #{record.card1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.card2 != null" >
+        card2 = #{record.card2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.random1 != null" >
+        random1 = #{record.random1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.person != null" >
+        person = #{record.person,jdbcType=VARCHAR},
+      </if>
+      <if test="record.intoduction != null" >
+        intoduction = #{record.intoduction,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jurisname != null" >
+        jurisname = #{record.jurisname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.juriscontent != null" >
+        juriscontent = #{record.juriscontent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jurispic != null" >
+        jurispic = #{record.jurispic,jdbcType=VARCHAR},
+      </if>
+      <if test="record.persontel != null" >
+        persontel = #{record.persontel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.personemail != null" >
+        personemail = #{record.personemail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.compytel != null" >
+        compytel = #{record.compytel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.juriscard != null" >
+        juriscard = #{record.juriscard,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update compy
+    set id = #{record.id,jdbcType=INTEGER},
+      compyid = #{record.compyid,jdbcType=VARCHAR},
+      compyname = #{record.compyname,jdbcType=VARCHAR},
+      password = #{record.password,jdbcType=VARCHAR},
+      picpath = #{record.picpath,jdbcType=VARCHAR},
+      regaddress = #{record.regaddress,jdbcType=VARCHAR},
+      industayid = #{record.industayid,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=INTEGER},
+      creatime = #{record.creatime,jdbcType=TIMESTAMP},
+      card1 = #{record.card1,jdbcType=VARCHAR},
+      card2 = #{record.card2,jdbcType=VARCHAR},
+      random1 = #{record.random1,jdbcType=VARCHAR},
+      person = #{record.person,jdbcType=VARCHAR},
+      intoduction = #{record.intoduction,jdbcType=VARCHAR},
+      jurisname = #{record.jurisname,jdbcType=VARCHAR},
+      juriscontent = #{record.juriscontent,jdbcType=VARCHAR},
+      jurispic = #{record.jurispic,jdbcType=VARCHAR},
+      persontel = #{record.persontel,jdbcType=VARCHAR},
+      personemail = #{record.personemail,jdbcType=VARCHAR},
+      compytel = #{record.compytel,jdbcType=VARCHAR},
+      juriscard = #{record.juriscard,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.maple.pojo.Compy" >
+    update compy
+    <set >
+      <if test="compyid != null" >
+        compyid = #{compyid,jdbcType=VARCHAR},
+      </if>
+      <if test="compyname != null" >
+        compyname = #{compyname,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="picpath != null" >
+        picpath = #{picpath,jdbcType=VARCHAR},
+      </if>
+      <if test="regaddress != null" >
+        regaddress = #{regaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="industayid != null" >
+        industayid = #{industayid,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="creatime != null" >
+        creatime = #{creatime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="card1 != null" >
+        card1 = #{card1,jdbcType=VARCHAR},
+      </if>
+      <if test="card2 != null" >
+        card2 = #{card2,jdbcType=VARCHAR},
+      </if>
+      <if test="random1 != null" >
+        random1 = #{random1,jdbcType=VARCHAR},
+      </if>
+      <if test="person != null" >
+        person = #{person,jdbcType=VARCHAR},
+      </if>
+      <if test="intoduction != null" >
+        intoduction = #{intoduction,jdbcType=VARCHAR},
+      </if>
+      <if test="jurisname != null" >
+        jurisname = #{jurisname,jdbcType=VARCHAR},
+      </if>
+      <if test="juriscontent != null" >
+        juriscontent = #{juriscontent,jdbcType=VARCHAR},
+      </if>
+      <if test="jurispic != null" >
+        jurispic = #{jurispic,jdbcType=VARCHAR},
+      </if>
+      <if test="persontel != null" >
+        persontel = #{persontel,jdbcType=VARCHAR},
+      </if>
+      <if test="personemail != null" >
+        personemail = #{personemail,jdbcType=VARCHAR},
+      </if>
+      <if test="compytel != null" >
+        compytel = #{compytel,jdbcType=VARCHAR},
+      </if>
+      <if test="juriscard != null" >
+        juriscard = #{juriscard,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.maple.pojo.Compy" >
+    update compy
+    set compyid = #{compyid,jdbcType=VARCHAR},
+      compyname = #{compyname,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      picpath = #{picpath,jdbcType=VARCHAR},
+      regaddress = #{regaddress,jdbcType=VARCHAR},
+      industayid = #{industayid,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      creatime = #{creatime,jdbcType=TIMESTAMP},
+      card1 = #{card1,jdbcType=VARCHAR},
+      card2 = #{card2,jdbcType=VARCHAR},
+      random1 = #{random1,jdbcType=VARCHAR},
+      person = #{person,jdbcType=VARCHAR},
+      intoduction = #{intoduction,jdbcType=VARCHAR},
+      jurisname = #{jurisname,jdbcType=VARCHAR},
+      juriscontent = #{juriscontent,jdbcType=VARCHAR},
+      jurispic = #{jurispic,jdbcType=VARCHAR},
+      persontel = #{persontel,jdbcType=VARCHAR},
+      personemail = #{personemail,jdbcType=VARCHAR},
+      compytel = #{compytel,jdbcType=VARCHAR},
+      juriscard = #{juriscard,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>枫叶招聘用户中心</title>
+  <link rel="stylesheet" href="../js/layui/css/layui.css">
+
+     <script type="text/javascript">   
+     function SetIFrameHeight(){
+          var iframeid=document.getElementById("iframe"); //iframe id
+          if (document.getElementById){
+          iframeid.height =document.documentElement.clientHeight;            
+        }
+     }
+    
+  </script>
+
+
+  <script type="text/javascript" src="../plugins/angularjs/angular.min.js">  </script>
+  <!-- 分页组件开始 -->
+  <script src="../plugins/angularjs/pagination.js"></script>
+  <link rel="stylesheet" href="../plugins/angularjs/pagination.css">
+  <!-- 分页组件结束 -->
+
+  <script type="text/javascript" src="../js/base.js">  </script>
+  <script type="text/javascript" src="../js/base_pagination.js">  </script>
+  <script type="text/javascript" src="../js/service/loginService.js">  </script>
+  <script type="text/javascript" src="../js/controller/baseController.js">  </script>
+  <script type="text/javascript" src="../js/controller/loginController.js">  </script>
+</head>
+<body class="layui-layout-body" ng-app="maple" ng-controller="loginController"  ng-init="showName()">
+<div class="layui-layout layui-layout-admin">
+  <div class="layui-header">
+    <div class="layui-logo">枫叶招聘个人中心控制台</div>
+    <!-- 头部区域（可配合layui已有的水平导航） -->
+    <ul class="layui-nav layui-layout-left">
+      <li class="layui-nav-item"><a href="index.html">首页</a></li>
+    <!--   <li class="layui-nav-item"><a href="">商品管理</a></li>
+      <li class="layui-nav-item"><a href="">用户</a></li>
+      <li class="layui-nav-item">
+        <a href="javascript:;">其它系统</a>
+        <dl class="layui-nav-child">
+          <dd><a href="">邮件管理</a></dd>
+          <dd><a href="">消息管理</a></dd>
+          <dd><a href="">授权管理</a></dd>
+        </dl>
+      </li> -->
+    </ul>
+    <ul class="layui-nav layui-layout-right">
+      <li class="layui-nav-item">
+        <a href="javascript:;">
+          <img src="{{entity.picpath}}" class="layui-nav-img">
+          {{loginName}}
+        </a>
+        <dl class="layui-nav-child">
+          <dd><a href="person.html" target="iframe">基本信息</a></dd>
+          <dd><a href="produ.html" target="iframe">基本资料</a></dd>
+       
+        </dl>
+      </li>
+      <li class="layui-nav-item"><a href="/logout">退出</a></li>
+    </ul>
+  </div>
+  
+  <div class="layui-side layui-bg-black">
+    <div class="layui-side-scroll">
+      <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+      <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+        <li class="layui-nav-item layui-nav-itemed">
+          <a class="" href="javascript:;">个人简历信息</a>
+          <dl class="layui-nav-child">
+            <dd><a href="resume.html" target="iframe">基本信息</a></dd>
+             <dd><a href="pratice.html" target="iframe">实习经历</a></dd>
+            <dd><a href="edu.html" target="iframe">教育经历</a></dd>
+              <dd><a href="project.html" target="iframe">项目经历</a></dd>
+             <dd><a href="resumemodel.html" target="iframe">预览简历</a></dd>
+     
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <a href="javascript:;">投递简历信息</a>
+          <dl class="layui-nav-child">
+            <dd><a href="send.html" target="iframe">投递简历状态</a></dd>
+
+          </dl>
+        </li>
+
+   
+             <li class="layui-nav-item">
+          <a href="javascript:;">申请成为招聘者</a>
+          <dl class="layui-nav-child">
+            <dd><a href="applyboss.html" target="iframe">提交公司审核</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item" ng-if="entity.rolereq=='1'"><a href="create.html" target="iframe">职位发布与收到的简历</a></li>
+
+        <li class="layui-nav-item">
+          <a href="javascript:;">众包管理</a>
+          <dl class="layui-nav-child">
+            <dd><a href="createdata.html" target="iframe">新的众包任务</a></dd>
+          </dl>
+          <dl class="layui-nav-child">
+            <dd><a href="datahis.html" target="iframe">历史发布的任务</a></dd>
+          </dl>
+          <dl class="layui-nav-child">
+            <dd><a href="tasklist.html" target="iframe">我申请的任务</a></dd>
+          </dl>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+  
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <div style="padding: 15px;">
+   <iframe width="100%" id="iframe" name="iframe" onload="SetIFrameHeight()" 
+          frameborder="0" src="home.html"></iframe>
+  </div>
+  </div>
+  
+  <div class="layui-footer">
+    <!-- 底部固定区域 -->
+    © 435302451@qq.com - 枫叶招聘平台
+  </div>
+</div>
+<script src="../js/layui/layui.js"></script>
+<script>
+//JavaScript代码区域
+layui.use('element', function(){
+  var element = layui.element;
+  
+});
+</script>
+</body>
+</html>
+     

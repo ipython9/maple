@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- 页面meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>简历完善资料</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
+
+    <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../plugins/adminLTE/css/AdminLTE.css">
+    <link rel="stylesheet" href="../plugins/adminLTE/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../js/layui/css/layui.css">
+    <script src="../plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="../plugins/bootstrap/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="../plugins/angularjs/angular.min.js">  </script>
+    <!-- 分页组件开始 -->
+    <script src="../plugins/angularjs/pagination.js"></script>
+    <link rel="stylesheet" href="../plugins/angularjs/pagination.css">
+    <!-- 分页组件结束 -->
+    <script type="text/javascript" src="../js/base.js">  </script>
+    <script type="text/javascript" src="../js/base_pagination.js">  </script>
+    <script type="text/javascript" src="../js/service/dataService.js"> </script>
+    <script type="text/javascript" src="../js/controller/baseController5.js">  </script>
+    <script type="text/javascript" src="../js/controller/dataController.js">  </script>
+</head>
+<body class="home-body promotion-five zhipin-v2" ng-app="maple" ng-controller="dataController"  ng-init="showName();">
+<!-- .box-body -->
+<div class="box-header with-border">
+    <h3 class="box-title">众包管理</h3>
+</div>
+
+<div class="box-body">
+
+    <!-- 数据表格 -->
+    <div class="table-box">
+
+        <!--工具栏-->
+        <div class="pull-left">
+            <div class="form-group form-inline">
+                <div class="btn-group">
+                    <!--<button type="button" class="btn btn-default" title="新建" data-toggle="modal" data-target="#editModal" ng-click="entity={}" ><i class="fa fa-file-o"></i> 新建</button>-->
+                    <!--<button type="button" class="btn btn-default" title="删除" ng-click="dele()"><i class="fa fa-trash-o" ></i> 删除</button>-->
+                    <button type="button" class="btn btn-default" title="刷新" onclick="window.location.reload();"><i class="fa fa-refresh"></i> 刷新</button>
+                </div>
+            </div>
+        </div>
+        <div class="box-tools pull-right">
+            <!--<div class="has-feedback">-->
+            <!--产品名称:<input ng-model="searchEntity.dataname">-->
+            <!--<button  class="btn btn-default" ng-click="reloadListdata()">查询</button>-->
+            <!--</div>-->
+        </div>
+        <!--工具栏/-->
+
+        <!--数据列表-->
+        <table id="dataList" class="table table-bordered table-striped table-hover dataTable">
+            <thead>
+            <tr>
+                <th class="" style="padding-right:0px">
+                    <input id="selall" type="checkbox" class="icheckbox_square-blue">
+                </th>
+                <th class="sorting">众包职位</th>
+                <th class="sorting">领取的任务包数</th>
+                <th class="sorting">单价</th>
+                <th class="sorting">截止日期</th>
+                <th class="text-center">职位要求</th>
+                <th class="text-center">任务包简历</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="entity in dataModel">
+                <td><input  type="checkbox" ng-click="updateSelection($event, entity.id)" ></td>
+                <td>{{entity.workdata.dataname}}</td>
+                <td>{{entity.num}}</td>
+                <td>{{entity.workdata.price}}</td>
+                <td>{{entity.workdata.enddate}}</td>
+                <td class="text-center">
+                    <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModal" ng-click="findjob(entity.job)">详情</button>
+                </td>
+                <td class="text-center">
+                    <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModal" ng-click="search(entity.workdata.id,entity.num,entity.startnum)">任务包简历</button>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+        <!--数据列表/-->
+        <tm-pagination conf="paginationConf"></tm-pagination>
+
+    </div>
+    <!-- 数据表格 /-->
+
+
+
+
+</div>
+<!-- /.box-body -->
+
+<!-- 编辑窗口 -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" >
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="myModalLabel">招聘信息</h3>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered table-striped"  width="1000px">
+                    <tr>
+                        <td>职位名称:</td>
+                        <td>{{job.name}} </td>
+                    </tr>
+                    <tr>
+                        <td>学历要求:</td>
+                        <td>
+                             {{job.level}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>经验要求</td>
+                        <td>   {{job.exp}} </td>
+                    </tr>
+                    <tr>
+                        <td>行业</td>
+                        <td>     {{job.postionid}} </td>
+                    </tr>
+                    <tr>
+                        <td>工作地址</td>
+                        <td>{{job.city}}  </td>
+                    </tr>
+                    <tr>
+                        <td>最低薪资</td>
+                        <td>{{job.startpd}}  </td>
+                    </tr>
+                    <tr>
+                        <td>最高薪资</td>
+                        <td>{{job.endpd}}   </td>
+                    </tr>
+                    <tr>
+                        <td>工作要求</td>
+                        <td>{{job.jobreq}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>工作内容</td>
+                        <td>{{job.content}}
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="../js/layui/layui.js" charset="utf-8"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script>
+    layui.use('laydate', function(){
+        var laydate = layui.laydate;
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test1' //指定元素
+        });
+
+        laydate.render({
+            elem: '#test2' //指定元素
+        });
+    });
+</script>
+</html>
+

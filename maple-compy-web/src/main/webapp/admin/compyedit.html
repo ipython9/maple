@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- 页面meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>公司完善资料</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
+
+    <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../plugins/adminLTE/css/AdminLTE.css">
+    <link rel="stylesheet" href="../plugins/adminLTE/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="../plugins/bootstrap/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="../plugins/angularjs/angular.min.js">  </script>
+    <!-- 分页组件开始 -->
+    <script src="../plugins/angularjs/pagination.js"></script>
+    <link rel="stylesheet" href="../plugins/angularjs/pagination.css">
+    <!-- 分页组件结束 -->
+
+    <script type="text/javascript" src="../js/base.js">  </script>
+    <script type="text/javascript" src="../js/base_pagination.js">  </script>
+    <script type="text/javascript" src="../js/service/loginService.js">  </script>
+    <!--<script type="text/javascript" src="../js/controller/baseController.js">  </script>-->
+    <script type="text/javascript" src="../js/controller/loginController.js">  </script>
+</head>
+<body class="layui-layout-body" ng-app="maple" ng-controller="loginController"  ng-init="showName()">
+<!-- 正文区域 -->
+<section class="content">
+
+    <div class="box-body">
+
+        <!--tab页-->
+        <div class="nav-tabs-custom">
+
+            <!--tab头-->
+            <ul class="nav nav-tabs">
+
+                <li class="active">
+                    <a href="#home" data-toggle="tab">公司信息</a>
+
+                </li>
+            </ul>
+            <!--tab头/-->
+
+            <!--tab内容-->
+            <div class="tab-content">
+
+                <!--表单内容-->
+                <div class="tab-pane active" id="home">
+                    <div class="row data-type">
+
+                        <div class="col-md-2 title">公司名称  </div>
+                        <div class="col-md-10 data">
+                            <input type="text" class="form-control" ng-model="entity.compyname"   placeholder="公司名称">
+
+                        </div>
+
+                        <div class="col-md-2 title">公司电话</div>
+                        <div class="col-md-10 data">
+                            <input type="text" class="form-control" ng-model="entity.compytel"  placeholder="公司电话" value="">
+                        </div>
+
+                        <div class="col-md-2 title">公司注册地址</div>
+                        <div class="col-md-10 data">
+                            <input type="text" class="form-control"  ng-model="entity.regaddress"   placeholder="公司注册地址" value="">
+                        </div>
+
+
+                        <div class="col-md-2 title">联系人姓名</div>
+                        <div class="col-md-10 data">
+                            <input type="text" class="form-control" ng-model="entity.person"   placeholder="联系人姓名" value="">
+                        </div>
+
+
+
+                        <div class="col-md-2 title">联系人手机</div>
+                        <div class="col-md-10 data">
+                            <input type="text" class="form-control" ng-model="entity.persontel"    placeholder="联系人手机" value="">
+                        </div>
+
+                        <div class="col-md-2 title">联系人EMAIL</div>
+                        <div class="col-md-10 data">
+                            <input type="text" class="form-control" ng-model="entity.personemail"    placeholder="联系人EMAIL" value="">
+                        </div>
+
+                        <div class="col-md-2 title">营业执照号</div>
+                        <div class="col-md-10 data">
+                            <input type="text" class="form-control" ng-model="entity.card1"   placeholder="营业执照号" value="">
+                        </div>
+
+                        <div class="col-md-2 title">税务登记证号</div>
+                        <div class="col-md-10 data">
+                            <input type="text" class="form-control"  ng-model="entity.card2"   placeholder="税务登记证号" value="">
+                        </div>
+
+                        <div class="col-md-2 title">法定代表人</div>
+                        <div class="col-md-10 data">
+                            <input type="text" class="form-control"   ng-model="entity.jurisname"  placeholder="法定代表人" value="">
+                        </div>
+
+                        <div class="col-md-2 title">法定代表人身份证号</div>
+                        <div class="col-md-10 data">
+                            <input type="text" class="form-control"   ng-model="entity.juriscard"  placeholder="法定代表人身份证号" value="">
+                        </div>
+                        <div class="col-md-12 title">行业类型</div>
+                            <select class="form-control"  ng-model="entity.industayid">
+                                <option value="IT互联网">IT互联网</option>
+                                <option value="金融">金融</option>
+                                <option value="房地产">房地产</option>
+                                <option value="教育培训">教育培训</option>
+                                <option value="汽车">汽车</option>
+                                <option value="娱乐传媒">娱乐传媒</option>
+                                <option value="医疗健康">医疗健康</option>
+                                <option value="法律咨询">法律咨询</option>
+                                <option value="供应链物流">供应链物流</option>
+                                <option value="采购贸易">采购贸易</option>
+                            </select>
+                        <div class="col-md-12 title">公司经营阶段</div>
+                        <select class="form-control"  ng-model="entity.random1">
+                            <option value="未融资">未融资</option>
+                            <option value="天使轮">天使轮</option>
+                            <option value="A轮">A轮</option>
+                            <option value="B轮">B轮</option>
+                            <option value="C轮">C轮</option>
+                            <option value="D轮及以上">D轮及以上</option>
+                            <option value="不需要融资">不需要融资</option>
+                            <option value="已上市">已上市</option>
+                        </select>
+                        <div class="col-md-12 title">公司简介</div>
+                        <textarea  class="form-control" placeholder="公司简介" rows="10" ng-model="entity.intoduction"></textarea>
+                    </div>
+                </div>
+                <!--表单内容/-->
+            </div>
+            <!--tab内容/-->
+
+
+        </div>
+
+
+
+
+    </div>
+    <div class="btn-toolbar list-toolbar">
+        <button class="btn btn-primary" ng-click="save()"><i class="fa fa-save"></i>保存</button>
+    </div>
+
+</section>
+<!-- 正文区域 /-->
+
+
+</body>
+
+</html>

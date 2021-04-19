@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- 页面meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>公司完善资料</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
+
+    <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../plugins/adminLTE/css/AdminLTE.css">
+    <link rel="stylesheet" href="../plugins/adminLTE/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="../plugins/bootstrap/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="../plugins/angularjs/angular.min.js">  </script>
+    <!-- 分页组件开始 -->
+    <script src="../plugins/angularjs/pagination.js"></script>
+    <link rel="stylesheet" href="../plugins/angularjs/pagination.css">
+    <!-- 分页组件结束 -->
+
+    <script type="text/javascript" src="../js/base.js">  </script>
+    <script type="text/javascript" src="../js/base_pagination.js">  </script>
+    <script type="text/javascript" src="../js/service/loginService.js">  </script>
+
+    <script type="text/javascript" src="../js/controller/baseController.js">  </script>
+    <script type="text/javascript" src="../js/controller/loginController.js">  </script>
+</head>
+<body class="layui-layout-body" ng-app="maple" ng-controller="loginController"  ng-init="showName()">
+<!-- 正文区域 -->
+<section class="content">
+
+    <div class="box-body">
+
+        <!--tab页-->
+        <div class="nav-tabs-custom">
+
+            <!--tab头-->
+            <ul class="nav nav-tabs">
+
+                <li class="active">
+                    <a href="#home" data-toggle="tab">个人基本信息</a>
+
+                </li>
+            </ul>
+            <!--tab头/-->
+
+            <!--tab内容-->
+            <div class="tab-content">
+
+                <!--表单内容-->
+                <div class="tab-pane active" id="home">
+                    <div class="row data-type">
+
+                        <div class="col-md-2 title">姓名  </div>
+                        <div class="col-md-10 data">
+                            <input type="text" class="form-control" ng-model="entity.username"   placeholder="姓名">
+
+                        </div>
+
+                        <div class="col-md-2 title">性别</div>
+                        <div class="col-md-10 data">
+                            <input type="text" class="form-control" ng-model="entity.sex"  placeholder="性别" value="">
+                        </div>
+
+                        <div class="col-md-2 title">年龄</div>
+                        <div class="col-md-10 data">
+                            <input type="text" class="form-control"  ng-model="entity.age"   placeholder="出生年月" value="">
+                        </div>
+
+
+                        <div class="col-md-2 title">微信</div>
+                        <div class="col-md-10 data">
+                            <input type="text" class="form-control" ng-model="entity.weixin"   placeholder="微信" value="">
+                        </div>
+
+
+
+                        <div class="col-md-2 title">email</div>
+                        <div class="col-md-10 data">
+                            <input type="text" class="form-control" ng-model="entity.email"    placeholder="邮箱" value="">
+                        </div>
+
+                        <div class="col-md-2 title">手机</div>
+                        <div class="col-md-10 data">
+                            <input type="text" class="form-control" ng-model="entity.tel"    placeholder="手机" value="">
+                        </div>
+                        <div class="col-md-12 title">学历</div>
+                        <select class="form-control"  ng-model="entity.level">
+                            <option value="初中及以下">初中及以下</option>
+                            <option value="中专">中专</option>
+                            <option value="高中">高中</option>
+                            <option value="大专">大专</option>
+                            <option value="本科">本科</option>
+                            <option value="硕士">硕士</option>
+                            <option value="博士">博士</option>
+                        </select>
+
+                        <div class="col-md-2 title">头像</div>
+                        <td>
+                            <input type="file" id="file"/>
+                            <button class="btn btn-primary" type="button" ng-click="uploadFile()">
+                                上传
+                            </button>
+                            <img  src="{{picpath}}" width="200px" height="200px">
+                            <input  class="form-control" placeholder="图片" ng-model="entity.picpath" src="{{entity.picpath}}" type="hidden" value=" {{picpath}} ">
+                        </td>
+
+                    </div>
+                </div>
+                <!--表单内容/-->
+            </div>
+            <!--tab内容/-->
+
+
+        </div>
+
+
+
+
+    </div>
+    <div class="btn-toolbar list-toolbar">
+        <button class="btn btn-primary" ng-click="save()"><i class="fa fa-save"></i>保存</button>
+    </div>
+
+</section>
+<!-- 正文区域 /-->
+
+
+</body>
+
+</html>

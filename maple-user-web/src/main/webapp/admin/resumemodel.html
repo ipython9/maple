@@ -1,0 +1,231 @@
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6"><![endif]-->
+<!--[if IE 7 ]><html class="ie ie7"><![endif]-->
+<!--[if IE 8 ]><html class="ie ie8"><![endif]-->
+<!--[if IE 9 ]><html class="ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html class="standard"><!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>枫叶招聘直聘-互联网招聘神器！官方IP:直直</title>
+    <meta name="keywords" content="Boss直聘,直直,招聘,求职,找工作"/>
+    <meta name="description" content="Boss直聘是一款互联网求职招聘找工作软件，让求职者与Boss直接开聊、加快面试、即时反馈，找工作就用Boss直聘。直直为Boss直聘IP，下载APP让直直带你轻松找工作！"/>
+    <link href="https://static.zhipin.com/zhipin/v139/web/geek/css/resume.css" type="text/css" rel="stylesheet">
+    <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
+
+    <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../plugins/adminLTE/css/AdminLTE.css">
+    <link rel="stylesheet" href="../plugins/adminLTE/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="../plugins/bootstrap/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="../plugins/angularjs/angular.min.js">  </script>
+    <!-- 分页组件开始 -->
+    <script src="../plugins/angularjs/pagination.js"></script>
+    <link rel="stylesheet" href="../plugins/angularjs/pagination.css">
+    <!-- 分页组件结束 -->
+
+    <script type="text/javascript" src="../js/base.js">  </script>
+    <script type="text/javascript" src="../js/base_pagination.js">  </script>
+    <script type="text/javascript" src="../js/service/userService.js">  </script>
+    <script type="text/javascript" src="../js/controller/baseController.js">  </script>
+    <script type="text/javascript" src="../js/controller/userController.js">  </script>
+</head>
+<body class="layui-layout-body" ng-app="maple" ng-controller="userController" ng-init="resumemodel()">
+
+<div class="container">
+    <div class="basis">
+        <img class='basis-img' src="{{ResumeModel.user.picpath}}">
+        <dl class="basis-text">
+            <dt class="name">{{ResumeModel.user.username}}</dt>
+            <dd>
+              年龄： {{ResumeModel.user.age}} <span class="devide first">|</span>
+
+
+
+               性别： {{ResumeModel.user.sex}}
+
+                <span class="devide">|</span>
+               学历： {{ResumeModel.user.level}}<span class="devide">|</span>
+
+            </dd>
+            <dd>电话：{{ResumeModel.user.tel}}</dd>
+        </dl>
+    </div>
+
+    <div class="sec">
+        <h3 class="sec-title">个人优势</h3>
+        <p class="sec-content">{{ResumeModel.resume.peradv}}</p>
+    </div>
+
+
+    <div class="sec expect-pos">
+        <h3 class="sec-title">期望职位</h3>
+        <div class="sec-content">
+
+
+
+            <div class="pos-select">
+                <div class="option-slted">
+                                        <span class="option-value">
+                                       {{ResumeModel.resume.postionid}} &nbsp;&nbsp;&nbsp; {{ResumeModel.resume.cityid}} &nbsp;&nbsp;&nbsp; {{ResumeModel.resume.startpd}}-{{ResumeModel.resume.endpd}} &nbsp;&nbsp;&nbsp;
+                                        </span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+
+
+    <div class="sec">
+        <h3 class="sec-title">项目经历</h3>
+
+
+
+        <div class="sec-content" ng-repeat="entity in ResumeModel.projectList ">
+            <div class="from"> {{entity.projectname}} </div>
+            <div class="major">
+                <span class="time"> {{entity.startdate}} - {{entity.enddate}} </span>
+                {{entity.role}}
+            </div>
+            <p><b>描述：</b> {{entity.content}} </p>
+            <p><b>业绩：</b> {{entity.grade}} </p>
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+    <div class="sec">
+        <h3 class="sec-title">教育经历</h3>
+
+        <div class="sec-content" ng-repeat="entity in ResumeModel.eduList">
+            <div class="from">{{entity.eduname}}</div>
+            <div class="major">
+                <span class="time"> {{entity.startdate}} - {{entity.enddate}}</span>
+               {{entity.edupro}}<span class="devide">|</span>本科
+            </div>
+
+            <p><b>在校经历：</b> {{entity.content}}</p>
+
+        </div>
+
+    </div>
+
+
+    <div class="sec">
+        <h3 class="sec-title">实习经历</h3>
+
+        <div class="sec-content" ng-repeat="entity in ResumeModel.praticeList">
+            <div class="from">{{entity.compyname}}</div>
+            <div class="major">
+                <span class="time">{{entity.startdate}} - {{entity.enddate}}</span>
+               部门： {{entity.department}}<span class="devide">|</span>本科
+            </div>
+            <p><b>描述：</b> {{entity.content}} </p>
+            <p><b>业绩：</b> {{entity.grade}} </p>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<div class='frame-footer'>
+    <!--   <a href="https://docdownload.zhipin.com/geek/resume/preview/download?type=docx&expectId=1251e3651ddeba2703B90t-8EFM~" ka="user_resume_doc_download" class="btn btn-load">下载</a> -->
+</div>
+
+
+
+<input type="hidden" id="page_key_name" value="cpc_user_resume_preview">
+<script src="https://static.zhipin.com/library/js/lib/jquery-1.12.2.min.js"></script>
+<script src="https://static.zhipin.com/zhipin/v139/web/geek/js/main.js"></script>
+</body>
+
+
+<script>
+    function get_share_datas_from_html_inapp() {
+        var shid = "shdefault",
+            urlShid,
+            urlSid,
+            pk = "pkdefault",
+            pp = "ppdefault",
+            pkn = (typeof _PK != 'undefined' ? _PK : document.getElementById("page_key_name")),
+            getQueryString = function(name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"),
+                    r = window.location.search.substr(1).match(reg);
+                if (r != null) {
+                    return unescape(r[2])
+                }
+                return null;
+            };
+        urlShid = getQueryString("shid");
+        urlSid = getQueryString("sid");
+        if (urlShid) {
+            shid = urlShid;
+        } else if (urlSid) {
+            shid = urlSid;
+        }
+        if (pkn) {
+            var pknVal = pkn.value;
+            if (pknVal) {
+                var pkArray = pknVal.split("|");
+                if (pkArray.length == 1) {
+                    pk = pkArray[0];
+                } else if (pkArray.length >= 2) {
+                    pk = pkArray[0];
+                    pp = pkArray[1];
+                }
+            }
+        }
+        var ret = [];
+        ret["shid"] = shid;
+        ret["pk"] = pk;
+        ret["pp"] = pp;
+        return ret;
+    }
+    function getQueryString(name)
+    {
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r!=null)return  unescape(r[2]); return null;
+    }
+</script>
+<script>
+    var _T = _T || [];
+    (function() {
+        var script = document.createElement("script");
+        script.src = "https://static.zhipin.com/library/js/analytics/ka.js";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(script, s);
+    })();
+
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?194df3105ad7148dcf2b98a91b5e727a";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+</html>

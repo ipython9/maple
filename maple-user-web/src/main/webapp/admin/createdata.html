@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- 页面meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>公司完善资料</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
+
+    <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../plugins/adminLTE/css/AdminLTE.css">
+    <link rel="stylesheet" href="../plugins/adminLTE/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="../plugins/bootstrap/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="../plugins/angularjs/angular.min.js">  </script>
+    <!-- 分页组件开始 -->
+    <script src="../plugins/angularjs/pagination.js"></script>
+    <link rel="stylesheet" href="../plugins/angularjs/pagination.css">
+    <!-- 分页组件结束 -->
+
+    <script type="text/javascript" src="../js/base.js">  </script>
+    <script type="text/javascript" src="../js/base_pagination.js">  </script>
+    <script type="text/javascript" src="../js/service/dataService.js">  </script>
+    <script type="text/javascript" src="../js/controller/baseController.js">  </script>
+    <script type="text/javascript" src="../js/controller/dataController.js">  </script>
+</head>
+<body class="layui-layout-body" ng-app="maple" ng-controller="dataController" ng-init="findJobList()">
+<!-- 正文区域 -->
+<section class="content">
+
+    <div class="box-body">
+
+        <!--tab页-->
+        <div class="nav-tabs-custom">
+
+            <!--tab头-->
+            <ul class="nav nav-tabs">
+
+                <li class="active">
+                    <a href="#home" data-toggle="tab">简历众包</a>
+
+                </li>
+            </ul>
+            <!--tab头/-->
+
+            <!--tab内容-->
+            <div class="tab-content">
+
+                <!--表单内容-->
+                <div class="tab-pane active" id="home">
+                    <div class="row data-type">
+
+                        <div class="col-md-2 title">众包的职位</div>
+                        <div class="col-md-10 data">
+                            <select class="form-control"  ng-model="entity.jobid" ng-options="item.id as item.name for item in list">
+                            </select>
+                        </div>
+                        <div class="col-md-2 title">简历数量</div>
+                        <div class="col-md-10 data">
+                            <input type="text" class="form-control"  ng-model="entity.size"   placeholder="简历数量" value="">
+                        </div>
+
+                        <div class="col-md-2 title">任务包数量</div>
+                        <div class="col-md-10 data">
+                            <input type="text" class="form-control" ng-model="entity.num"   placeholder="任务包数量" value="">
+                        </div>
+
+                        <div class="col-md-2 title">任务包单价</div>
+                        <div class="col-md-10 data">
+                            <input type="text" class="form-control" ng-model="entity.price"    placeholder="任务包单价" value="">
+                        </div>
+
+                        <div class="col-md-2 title">任务截止日期</div>
+                        <div class="col-sm-10 data">
+                            <input type="date" class="form-control" ng-model="entity.enddate"    placeholder="任务截至日期" value="">
+                        </div>
+                        <div class="col-md-2 title">状态</div>
+                        <div class="col-md-10 data">
+                            <select class="form-control"  ng-model="entity.status">
+                                <option value="开放">开放</option>
+                                <option value="关闭">关闭</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!--表单内容/-->
+            </div>
+            <!--tab内容/-->
+        </div>
+    </div>
+    <div class="btn-toolbar list-toolbar">
+        <button class="btn btn-primary" ng-click="add()"><i class="fa fa-save"></i>发布任务</button>
+    </div>
+
+</section>
+<!-- 正文区域 /-->
+
+
+</body>
+
+</html>

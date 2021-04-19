@@ -1,0 +1,113 @@
+
+.job-tab-box li .sub-li {
+    display: block;
+    border-right: solid 2px #f6f6f8;
+    border-bottom: solid 2px #f6f6f8;
+    height: 100%;
+    margin-right: -2px
+}
+
+.job-tab-box li .sub-li:hover {
+    box-shadow: 5px 5px 20px rgba(0,0,0,.05);
+    border-bottom-color: #eaebef;
+    border-left-color: #edeef2;
+    position: relative;
+    z-index: 10
+}
+
+.job-tab-box ul {
+    height: 393px
+}
+
+.job-tab-box ul li {
+    height: 131px;
+    width: 33.33333333%;
+    float: left
+}
+
+.job-tab-box li .sub-li {
+    display: block;
+    border-right: solid 2px #f6f6f8;
+    border-bottom: solid 2px #f6f6f8;
+    height: 100%;
+    margin-right: -2px
+}
+
+.job-tab-box li .sub-li:hover {
+    box-shadow: 5px 5px 20px rgba(0,0,0,.05);
+    border-bottom-color: #eaebef;
+    border-left-color: #edeef2;
+    position: relative;
+    z-index: 10
+}
+
+.job-tab-box li a {
+    display: block
+}
+
+.job-tab-box li a.user-info:hover {
+    background: #fafafa
+}
+
+.job-tab-box li a.job-info:hover p {
+    color: #00d7c6
+}
+
+.job-tab-box li a.job-info {
+    height: 71px;
+    padding-top: 10px
+}
+
+.job-tab-box li p {
+    height: 35px;
+    line-height: 35px;
+    font-size: 15px;
+    color: #61687c;
+    width: 220px;
+    padding-right: 70px;
+    margin: 0 auto 0 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    position: relative
+}
+
+.job-tab-box li .salary {
+    color: #fc6c38;
+    position: absolute;
+    right: 0;
+    top: 0
+}
+
+.job-tab-box li a.job-info p.job-text {
+    font-size: 12px;
+    color: #61687c;
+    border-bottom: dashed 1px #e3e7ed;
+    width: 290px;
+    padding-right: 0;
+    line-height: 28px
+}
+
+.job-tab-box a.user-info {
+    padding: 7px 0 9px 0
+}
+
+.job-tab-box .user-info p {
+    font-size: 14px;
+    width: 290px;
+    padding-right: 0
+}
+
+.job-tab-box .user-info img {
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    border-radius: 50%;
+    margin-right: 15px
+}
+
+.job-tab-box .user-info .user-text {
+    margin-left: 10px;
+    font-size: 12px;
+    color: #8d92a1
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="tab-content">
+
+    <!--表单内容-->
+    <div class="tab-pane active" id="home">
+        <div class="row data-type">
+
+            <div class="col-md-2 title">原始密码  </div>
+            <div class="col-md-10 data">
+                <input type="text" class="form-control" ng-model="entity.compyname"   placeholder="原始密码">
+
+            </div>
+
+            <div class="col-md-2 title">新密码</div>
+            <div class="col-md-10 data">
+                <input type="text" class="form-control" ng-model="entity.compytel"  placeholder="新密码" value="">
+            </div>
+
+        </div>
+    </div>
+</div>
+            <div class="btn-toolbar list-toolbar">
+                <button class="btn btn-primary" ng-click="save()"><i class="fa fa-save"></i>保存</button>
+            </div>
+</body>
+</html>

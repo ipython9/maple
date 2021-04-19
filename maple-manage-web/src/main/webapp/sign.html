@@ -1,0 +1,82 @@
+<html lang="en" style="font-size: 85.2px;">
+<head>
+    <link rel="shortcut icon" href="img/枫叶.ico" type="image/x-icon">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="wap-font-scale" content="no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+    <script>
+        var _rlog = _rlog || [];
+        _rlog.push(['_setAccount', 'dictblog']);
+        _rlog.push(['_setAutoPageview', false]);
+
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                rescale = function () {
+                    var clientWidth = docEl.clientWidth || window.innerWidth;
+                    var rem = ((clientWidth > 750 ? (750) : (clientWidth)) / 750 * 100);
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = rem + 'px';
+                };
+
+            if (!doc.addEventListener) return;
+            doc.addEventListener('DOMContentLoaded', rescale, false);
+            if (docEl.clientWidth > 750) return;
+            win.addEventListener(resizeEvt, rescale, false);
+        })(document, window);
+
+        var yd = {};
+
+    </script>
+    <meta charset="utf-8">
+    <title>枫叶众包-账户登录</title>
+    <link rel="stylesheet" type="text/css" href="css/sign.css">
+</head>
+<body>
+<div id="main"><div class="bgLogin"></div>
+    <div class="login login-web">
+
+  
+        <form method="post" action="/login" class="login-form tac" id="login-form">
+            <div class="ydLogo"></div>
+            <div class="group uname">
+                <input type="text" placeholder="账号" name="username" id="input-uname" _validation="validation-1">
+                <div class="deleteUname"></div>
+                <div class="autocomplete">
+                    <a data-domain="@163.com"></a>
+                    <a data-domain="@126.com"></a>
+                    <a data-domain="@yeah.net"></a>
+                    <a data-domain="@popo.163.com"></a>
+                    <a data-domain="@netease.com"></a>
+                    <a data-domain="@vip.163.com"></a>
+                    <a data-domain="@vip.126.com"></a>
+                    <a data-domain="@188.com"></a>
+                </div>
+            </div>
+            <div class="group pwd">
+                <input type="password" placeholder="密码"  name="password" id="input-pwd" _validation="validation-2">
+            </div>
+            <div id="login-tips" class="login-tips"></div>
+            <input type="submit" value="登录"  class="g-btn-green submit-btn" id="login-btn" data-log="login/submit">
+            <a href="/forpas" class="forget">
+                忘记密码
+            </a>
+
+
+        <!--     <%--<div class="third">--%>
+                <%--<div class="third-title">--%>
+                    <%--<p><span>还可以选择以下方式登录</span></p>--%>
+                <%--</div>--%>
+
+                <%--<a href="javascript:;" class="wb" data-type="sina" node-type="tsina"></a>--%>
+                <%--<a href="javascript:;" class="wx" data-type="weixin" node-type="weixin" style="display: inline-block;"></a>--%>
+                <%--<a href="javascript:;" class="qq" data-type="qq" node-type="cqq"></a>--%>
+            <%--</div>--%> -->
+
+            <input type="hidden" id="input_back" value="http://zb.youdao.com/home.html">
+
+        </form>
+
+    </div></div>
+
+</body></html>

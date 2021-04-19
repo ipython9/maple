@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.maple.mapper.ProducMapper" >
+  <resultMap id="BaseResultMap" type="com.maple.pojo.Produc" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="compyid" property="compyid" jdbcType="VARCHAR" />
+    <result column="produname" property="produname" jdbcType="VARCHAR" />
+    <result column="producontent" property="producontent" jdbcType="VARCHAR" />
+    <result column="produurl" property="produurl" jdbcType="VARCHAR" />
+    <result column="produpic" property="produpic" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, compyid, produname, producontent, produurl, produpic
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.maple.pojo.ProducExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from produc
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from produc
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from produc
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.maple.pojo.ProducExample" >
+    delete from produc
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.maple.pojo.Produc" >
+    insert into produc (id, compyid, produname, 
+      producontent, produurl, produpic
+      )
+    values (#{id,jdbcType=INTEGER}, #{compyid,jdbcType=VARCHAR}, #{produname,jdbcType=VARCHAR}, 
+      #{producontent,jdbcType=VARCHAR}, #{produurl,jdbcType=VARCHAR}, #{produpic,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.maple.pojo.Produc" >
+    insert into produc
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="compyid != null" >
+        compyid,
+      </if>
+      <if test="produname != null" >
+        produname,
+      </if>
+      <if test="producontent != null" >
+        producontent,
+      </if>
+      <if test="produurl != null" >
+        produurl,
+      </if>
+      <if test="produpic != null" >
+        produpic,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="compyid != null" >
+        #{compyid,jdbcType=VARCHAR},
+      </if>
+      <if test="produname != null" >
+        #{produname,jdbcType=VARCHAR},
+      </if>
+      <if test="producontent != null" >
+        #{producontent,jdbcType=VARCHAR},
+      </if>
+      <if test="produurl != null" >
+        #{produurl,jdbcType=VARCHAR},
+      </if>
+      <if test="produpic != null" >
+        #{produpic,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.maple.pojo.ProducExample" resultType="java.lang.Integer" >
+    select count(*) from produc
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update produc
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.compyid != null" >
+        compyid = #{record.compyid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.produname != null" >
+        produname = #{record.produname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.producontent != null" >
+        producontent = #{record.producontent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.produurl != null" >
+        produurl = #{record.produurl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.produpic != null" >
+        produpic = #{record.produpic,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update produc
+    set id = #{record.id,jdbcType=INTEGER},
+      compyid = #{record.compyid,jdbcType=VARCHAR},
+      produname = #{record.produname,jdbcType=VARCHAR},
+      producontent = #{record.producontent,jdbcType=VARCHAR},
+      produurl = #{record.produurl,jdbcType=VARCHAR},
+      produpic = #{record.produpic,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.maple.pojo.Produc" >
+    update produc
+    <set >
+      <if test="compyid != null" >
+        compyid = #{compyid,jdbcType=VARCHAR},
+      </if>
+      <if test="produname != null" >
+        produname = #{produname,jdbcType=VARCHAR},
+      </if>
+      <if test="producontent != null" >
+        producontent = #{producontent,jdbcType=VARCHAR},
+      </if>
+      <if test="produurl != null" >
+        produurl = #{produurl,jdbcType=VARCHAR},
+      </if>
+      <if test="produpic != null" >
+        produpic = #{produpic,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.maple.pojo.Produc" >
+    update produc
+    set compyid = #{compyid,jdbcType=VARCHAR},
+      produname = #{produname,jdbcType=VARCHAR},
+      producontent = #{producontent,jdbcType=VARCHAR},
+      produurl = #{produurl,jdbcType=VARCHAR},
+      produpic = #{produpic,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.maple.mapper.WorkdataMapper" >
+  <resultMap id="BaseResultMap" type="com.maple.pojo.Workdata" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="size" property="size" jdbcType="INTEGER" />
+    <result column="userid" property="userid" jdbcType="VARCHAR" />
+    <result column="jobid" property="jobid" jdbcType="INTEGER" />
+    <result column="enddate" property="enddate" jdbcType="DATE" />
+    <result column="createdate" property="createdate" jdbcType="DATE" />
+    <result column="num" property="num" jdbcType="INTEGER" />
+    <result column="price" property="price" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="dataname" property="dataname" jdbcType="VARCHAR" />
+    <result column="startnum" property="startnum" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, size, userid, jobid, enddate, createdate, num, price, status, dataname, startnum
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.maple.pojo.WorkdataExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from workdata
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from workdata
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from workdata
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.maple.pojo.WorkdataExample" >
+    delete from workdata
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.maple.pojo.Workdata" >
+    insert into workdata (id, size, userid, 
+      jobid, enddate, createdate, 
+      num, price, status, 
+      dataname, startnum)
+    values (#{id,jdbcType=INTEGER}, #{size,jdbcType=INTEGER}, #{userid,jdbcType=VARCHAR}, 
+      #{jobid,jdbcType=INTEGER}, #{enddate,jdbcType=DATE}, #{createdate,jdbcType=DATE}, 
+      #{num,jdbcType=INTEGER}, #{price,jdbcType=INTEGER}, #{status,jdbcType=VARCHAR}, 
+      #{dataname,jdbcType=VARCHAR}, #{startnum,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.maple.pojo.Workdata" >
+    insert into workdata
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="size != null" >
+        size,
+      </if>
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="jobid != null" >
+        jobid,
+      </if>
+      <if test="enddate != null" >
+        enddate,
+      </if>
+      <if test="createdate != null" >
+        createdate,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="dataname != null" >
+        dataname,
+      </if>
+      <if test="startnum != null" >
+        startnum,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="size != null" >
+        #{size,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="jobid != null" >
+        #{jobid,jdbcType=INTEGER},
+      </if>
+      <if test="enddate != null" >
+        #{enddate,jdbcType=DATE},
+      </if>
+      <if test="createdate != null" >
+        #{createdate,jdbcType=DATE},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="dataname != null" >
+        #{dataname,jdbcType=VARCHAR},
+      </if>
+      <if test="startnum != null" >
+        #{startnum,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.maple.pojo.WorkdataExample" resultType="java.lang.Integer" >
+    select count(*) from workdata
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update workdata
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.size != null" >
+        size = #{record.size,jdbcType=INTEGER},
+      </if>
+      <if test="record.userid != null" >
+        userid = #{record.userid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jobid != null" >
+        jobid = #{record.jobid,jdbcType=INTEGER},
+      </if>
+      <if test="record.enddate != null" >
+        enddate = #{record.enddate,jdbcType=DATE},
+      </if>
+      <if test="record.createdate != null" >
+        createdate = #{record.createdate,jdbcType=DATE},
+      </if>
+      <if test="record.num != null" >
+        num = #{record.num,jdbcType=INTEGER},
+      </if>
+      <if test="record.price != null" >
+        price = #{record.price,jdbcType=INTEGER},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dataname != null" >
+        dataname = #{record.dataname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.startnum != null" >
+        startnum = #{record.startnum,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update workdata
+    set id = #{record.id,jdbcType=INTEGER},
+      size = #{record.size,jdbcType=INTEGER},
+      userid = #{record.userid,jdbcType=VARCHAR},
+      jobid = #{record.jobid,jdbcType=INTEGER},
+      enddate = #{record.enddate,jdbcType=DATE},
+      createdate = #{record.createdate,jdbcType=DATE},
+      num = #{record.num,jdbcType=INTEGER},
+      price = #{record.price,jdbcType=INTEGER},
+      status = #{record.status,jdbcType=VARCHAR},
+      dataname = #{record.dataname,jdbcType=VARCHAR},
+      startnum = #{record.startnum,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.maple.pojo.Workdata" >
+    update workdata
+    <set >
+      <if test="size != null" >
+        size = #{size,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        userid = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="jobid != null" >
+        jobid = #{jobid,jdbcType=INTEGER},
+      </if>
+      <if test="enddate != null" >
+        enddate = #{enddate,jdbcType=DATE},
+      </if>
+      <if test="createdate != null" >
+        createdate = #{createdate,jdbcType=DATE},
+      </if>
+      <if test="num != null" >
+        num = #{num,jdbcType=INTEGER},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="dataname != null" >
+        dataname = #{dataname,jdbcType=VARCHAR},
+      </if>
+      <if test="startnum != null" >
+        startnum = #{startnum,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.maple.pojo.Workdata" >
+    update workdata
+    set size = #{size,jdbcType=INTEGER},
+      userid = #{userid,jdbcType=VARCHAR},
+      jobid = #{jobid,jdbcType=INTEGER},
+      enddate = #{enddate,jdbcType=DATE},
+      createdate = #{createdate,jdbcType=DATE},
+      num = #{num,jdbcType=INTEGER},
+      price = #{price,jdbcType=INTEGER},
+      status = #{status,jdbcType=VARCHAR},
+      dataname = #{dataname,jdbcType=VARCHAR},
+      startnum = #{startnum,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

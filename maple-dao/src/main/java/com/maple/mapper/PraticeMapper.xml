@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.maple.mapper.PraticeMapper" >
+  <resultMap id="BaseResultMap" type="com.maple.pojo.Pratice" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="userid" property="userid" jdbcType="VARCHAR" />
+    <result column="compyname" property="compyname" jdbcType="VARCHAR" />
+    <result column="industryid" property="industryid" jdbcType="VARCHAR" />
+    <result column="department" property="department" jdbcType="VARCHAR" />
+    <result column="postionid" property="postionid" jdbcType="INTEGER" />
+    <result column="postiname" property="postiname" jdbcType="VARCHAR" />
+    <result column="startdate" property="startdate" jdbcType="TIMESTAMP" />
+    <result column="enddate" property="enddate" jdbcType="TIMESTAMP" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="grade" property="grade" jdbcType="VARCHAR" />
+    <result column="skillid" property="skillid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, userid, compyname, industryid, department, postionid, postiname, startdate, enddate, 
+    content, grade, skillid
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.maple.pojo.PraticeExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from pratice
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from pratice
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from pratice
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.maple.pojo.PraticeExample" >
+    delete from pratice
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.maple.pojo.Pratice" >
+    insert into pratice (id, userid, compyname, 
+      industryid, department, postionid, 
+      postiname, startdate, enddate, 
+      content, grade, skillid
+      )
+    values (#{id,jdbcType=BIGINT}, #{userid,jdbcType=VARCHAR}, #{compyname,jdbcType=VARCHAR}, 
+      #{industryid,jdbcType=VARCHAR}, #{department,jdbcType=VARCHAR}, #{postionid,jdbcType=INTEGER}, 
+      #{postiname,jdbcType=VARCHAR}, #{startdate,jdbcType=TIMESTAMP}, #{enddate,jdbcType=TIMESTAMP}, 
+      #{content,jdbcType=VARCHAR}, #{grade,jdbcType=VARCHAR}, #{skillid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.maple.pojo.Pratice" >
+    insert into pratice
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="compyname != null" >
+        compyname,
+      </if>
+      <if test="industryid != null" >
+        industryid,
+      </if>
+      <if test="department != null" >
+        department,
+      </if>
+      <if test="postionid != null" >
+        postionid,
+      </if>
+      <if test="postiname != null" >
+        postiname,
+      </if>
+      <if test="startdate != null" >
+        startdate,
+      </if>
+      <if test="enddate != null" >
+        enddate,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="grade != null" >
+        grade,
+      </if>
+      <if test="skillid != null" >
+        skillid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="compyname != null" >
+        #{compyname,jdbcType=VARCHAR},
+      </if>
+      <if test="industryid != null" >
+        #{industryid,jdbcType=VARCHAR},
+      </if>
+      <if test="department != null" >
+        #{department,jdbcType=VARCHAR},
+      </if>
+      <if test="postionid != null" >
+        #{postionid,jdbcType=INTEGER},
+      </if>
+      <if test="postiname != null" >
+        #{postiname,jdbcType=VARCHAR},
+      </if>
+      <if test="startdate != null" >
+        #{startdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enddate != null" >
+        #{enddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null" >
+        #{grade,jdbcType=VARCHAR},
+      </if>
+      <if test="skillid != null" >
+        #{skillid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.maple.pojo.PraticeExample" resultType="java.lang.Integer" >
+    select count(*) from pratice
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update pratice
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.userid != null" >
+        userid = #{record.userid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.compyname != null" >
+        compyname = #{record.compyname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.industryid != null" >
+        industryid = #{record.industryid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.department != null" >
+        department = #{record.department,jdbcType=VARCHAR},
+      </if>
+      <if test="record.postionid != null" >
+        postionid = #{record.postionid,jdbcType=INTEGER},
+      </if>
+      <if test="record.postiname != null" >
+        postiname = #{record.postiname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.startdate != null" >
+        startdate = #{record.startdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.enddate != null" >
+        enddate = #{record.enddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.content != null" >
+        content = #{record.content,jdbcType=VARCHAR},
+      </if>
+      <if test="record.grade != null" >
+        grade = #{record.grade,jdbcType=VARCHAR},
+      </if>
+      <if test="record.skillid != null" >
+        skillid = #{record.skillid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update pratice
+    set id = #{record.id,jdbcType=BIGINT},
+      userid = #{record.userid,jdbcType=VARCHAR},
+      compyname = #{record.compyname,jdbcType=VARCHAR},
+      industryid = #{record.industryid,jdbcType=VARCHAR},
+      department = #{record.department,jdbcType=VARCHAR},
+      postionid = #{record.postionid,jdbcType=INTEGER},
+      postiname = #{record.postiname,jdbcType=VARCHAR},
+      startdate = #{record.startdate,jdbcType=TIMESTAMP},
+      enddate = #{record.enddate,jdbcType=TIMESTAMP},
+      content = #{record.content,jdbcType=VARCHAR},
+      grade = #{record.grade,jdbcType=VARCHAR},
+      skillid = #{record.skillid,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.maple.pojo.Pratice" >
+    update pratice
+    <set >
+      <if test="userid != null" >
+        userid = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="compyname != null" >
+        compyname = #{compyname,jdbcType=VARCHAR},
+      </if>
+      <if test="industryid != null" >
+        industryid = #{industryid,jdbcType=VARCHAR},
+      </if>
+      <if test="department != null" >
+        department = #{department,jdbcType=VARCHAR},
+      </if>
+      <if test="postionid != null" >
+        postionid = #{postionid,jdbcType=INTEGER},
+      </if>
+      <if test="postiname != null" >
+        postiname = #{postiname,jdbcType=VARCHAR},
+      </if>
+      <if test="startdate != null" >
+        startdate = #{startdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enddate != null" >
+        enddate = #{enddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null" >
+        grade = #{grade,jdbcType=VARCHAR},
+      </if>
+      <if test="skillid != null" >
+        skillid = #{skillid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.maple.pojo.Pratice" >
+    update pratice
+    set userid = #{userid,jdbcType=VARCHAR},
+      compyname = #{compyname,jdbcType=VARCHAR},
+      industryid = #{industryid,jdbcType=VARCHAR},
+      department = #{department,jdbcType=VARCHAR},
+      postionid = #{postionid,jdbcType=INTEGER},
+      postiname = #{postiname,jdbcType=VARCHAR},
+      startdate = #{startdate,jdbcType=TIMESTAMP},
+      enddate = #{enddate,jdbcType=TIMESTAMP},
+      content = #{content,jdbcType=VARCHAR},
+      grade = #{grade,jdbcType=VARCHAR},
+      skillid = #{skillid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
