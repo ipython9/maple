@@ -1,0 +1,520 @@
+/*
+Navicat MySQL Data Transfer
+
+Source Server         : root
+Source Server Version : 50559
+Source Host           : localhost:3306
+Source Database       : maple
+
+Target Server Type    : MYSQL
+Target Server Version : 50559
+File Encoding         : 65001
+
+Date: 2020-04-03 23:27:10
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for `address`
+-- ----------------------------
+DROP TABLE IF EXISTS `address`;
+CREATE TABLE `address` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) DEFAULT NULL,
+  `parentid` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of address
+-- ----------------------------
+INSERT INTO `address` VALUES ('1', '北京市', '0');
+INSERT INTO `address` VALUES ('2', '天津市', '0');
+INSERT INTO `address` VALUES ('3', '河北省', '0');
+INSERT INTO `address` VALUES ('4', '山西省', '0');
+INSERT INTO `address` VALUES ('5', '内蒙古自治区', '0');
+INSERT INTO `address` VALUES ('6', '辽宁省', '0');
+INSERT INTO `address` VALUES ('7', '吉林省', '0');
+INSERT INTO `address` VALUES ('8', '黑龙江省', '0');
+INSERT INTO `address` VALUES ('9', '上海市', '0');
+INSERT INTO `address` VALUES ('10', '江苏省', '0');
+INSERT INTO `address` VALUES ('11', '浙江省', '0');
+INSERT INTO `address` VALUES ('12', '安徽省', '0');
+INSERT INTO `address` VALUES ('13', '福建省', '0');
+INSERT INTO `address` VALUES ('14', '江西省', '0');
+INSERT INTO `address` VALUES ('15', '山东省', '0');
+INSERT INTO `address` VALUES ('16', '河南省', '0');
+INSERT INTO `address` VALUES ('17', '湖北省', '0');
+INSERT INTO `address` VALUES ('18', '湖南省', '0');
+INSERT INTO `address` VALUES ('19', '广东省', '0');
+INSERT INTO `address` VALUES ('20', '广西壮族自治区', '0');
+INSERT INTO `address` VALUES ('21', '海南省', '0');
+INSERT INTO `address` VALUES ('22', '重庆市', '0');
+INSERT INTO `address` VALUES ('23', '四川省', '0');
+INSERT INTO `address` VALUES ('24', '贵州省', '0');
+INSERT INTO `address` VALUES ('25', '云南省', '0');
+INSERT INTO `address` VALUES ('26', '西藏自治区', '0');
+INSERT INTO `address` VALUES ('27', '陕西省', '0');
+INSERT INTO `address` VALUES ('28', '甘肃省', '0');
+INSERT INTO `address` VALUES ('29', '青海省', '0');
+INSERT INTO `address` VALUES ('30', '宁夏回族自治区', '0');
+INSERT INTO `address` VALUES ('31', '新疆维吾尔自治区', '0');
+INSERT INTO `address` VALUES ('32', '台湾省', '0');
+INSERT INTO `address` VALUES ('33', '香港特别行政区', '0');
+INSERT INTO `address` VALUES ('34', '澳门特别行', '0');
+INSERT INTO `address` VALUES ('35', null, '0');
+INSERT INTO `address` VALUES ('36', null, '0');
+INSERT INTO `address` VALUES ('37', null, '0');
+INSERT INTO `address` VALUES ('38', null, '0');
+INSERT INTO `address` VALUES ('39', null, '0');
+INSERT INTO `address` VALUES ('40', null, '0');
+
+-- ----------------------------
+-- Table structure for `compy`
+-- ----------------------------
+DROP TABLE IF EXISTS `compy`;
+CREATE TABLE `compy` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `compyid` varchar(100) DEFAULT NULL,
+  `compyname` varchar(100) DEFAULT NULL,
+  `password` varchar(100) DEFAULT NULL,
+  `picpath` varchar(300) DEFAULT NULL,
+  `regaddress` varchar(200) DEFAULT NULL,
+  `industayid` varchar(100) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `creatime` datetime DEFAULT NULL,
+  `card1` varchar(100) DEFAULT NULL,
+  `card2` varchar(100) DEFAULT NULL,
+  `random1` varchar(200) DEFAULT NULL,
+  `person` varchar(200) DEFAULT NULL,
+  `intoduction` varchar(500) DEFAULT NULL,
+  `jurisname` varchar(100) DEFAULT NULL,
+  `juriscontent` varchar(500) DEFAULT NULL,
+  `jurispic` varchar(300) DEFAULT NULL,
+  `persontel` varchar(100) DEFAULT NULL,
+  `personemail` varchar(100) DEFAULT NULL,
+  `compytel` varchar(100) DEFAULT NULL,
+  `juriscard` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of compy
+-- ----------------------------
+INSERT INTO `compy` VALUES ('4', '004', '阿里巴巴', '$2a$10$ntTHnvSoka3CDdhSE8PocOQh6hJ32ZojVa.P53Fk.N2fr62ZRwzKW', 'http://47.101.218.112:9999/group1/M00/00/00/rBEuj1zKsZyAFhswAAAX1Wugmjc362.png', '杭州', 'IT互联网', '1', '2019-03-21 11:26:39', '123125453342', '123124123543', 'A轮', '朱天琪', '阿里巴巴集团的使命是让天下没有难做的生意。\n我们旨在赋能企业改变营销、销售和经营的方式。我们为商家、品牌及其他企业提供基本的互联网基础设施以及营销平台，让其可借助互联网的力量与用户和客户互动。我们的业务包括核心电商、云计算、数字媒体和娱乐以及创新项目和其他业务。我们并通过子公司菜鸟网络及所投资的关联公司口碑，参与物流和本地服务行业，同时与蚂蚁金融服务集团有战略合作，该金融服务集团主要通过中国领先的第三方网上支付平台支付宝运营。', '马云', null, null, '15225660991', '435302451@qq.com', '200100', '411329199608061037');
+INSERT INTO `compy` VALUES ('5', '005', '腾讯', '$2a$10$wnyKSL6Vg7OnfpuFANbWxuXdjNdIffvr5ueBvVbeSHt.oyBUEonrC', 'http://47.101.218.112:9999/group1/M00/00/00/rBEuj1zKsS-ACBMPAAAHtS-IDfI804.jpg', '深圳', 'IT互联网', '1', '2019-03-26 22:24:38', '12343456789', '32456789045', 'A轮', '冯小妮', '深圳市腾讯计算机系统有限公司成立于1998年11月，由马化腾、张志东、许晨晔、陈一丹、曾李青五位创始人共同创立。 是中国最大的互联网综合服务提供商之一，也是中国服务用户最多的互联网企业之一。\n腾讯多元化的服务包括：社交和通信服务QQ及微信/WeChat、社交网络平台QQ空间、腾讯游戏旗下QQ游戏平台、门户网站腾讯网、腾讯新闻客户端和网络视频服务腾讯视频等。', '马化腾', null, null, '12354367884', '958395917@qq.com', '100100', '422345677656765467');
+INSERT INTO `compy` VALUES ('6', '001', '四川链家地产', '$2a$10$UweUhlS0hhtu7WNoXwamLeYPtiw1drSFq/M6QISKCexKScHFBPajW', 'http://47.101.218.112:9999/group1/M00/00/00/rBEuj1zKrdqABWGsAAANFikLt8o556.jpg', '西双版纳景洪市', '房地产', '1', '2019-05-02 16:37:16', '12345674', '346g233', 'D轮及以上', '武峰', '链家成立于2001年，是中国领先的房地产服务企业，业务覆盖二手房、新房和租房等房产交易服务。链家已进驻北京、上海、广州、深圳、天津、成都、南京、大连等三十余座城市，门店数量超过8000家，经纪人超过15万名。\n链家具备高效的线上线下一体化服务能力，线上覆盖链家网PC端、手机端和APP，并全面入驻行业开放平台“贝壳找房”。链家网和贝壳均拥有行业领先的商机流量和产品技术实力，为消费者创造智慧高效的购租房体验。', '徐万刚', null, null, '15278700403', '15278700403', '500100', '657433778886');
+INSERT INTO `compy` VALUES ('7', '002', '长安汽车', '$2a$10$ugfwbbFDW4AgJaynFacbk.2lXROnXdcfVPN4CaQfWQBpX7lXURSdW', 'http://47.101.218.112:9999/group1/M00/00/00/rBEuj1zKrieAWhh_AAAMB3jDUQg338.jpg', '重庆长安汽车有限公司', '汽车', '1', '2019-05-02 16:39:13', '13467532', '23eedd', '已上市', '王刚', '长安汽车是中国汽车四大集团阵营企业、中国品牌汽车领导者，拥有157年历史底蕴、35年造车积累，全球有16个生产基地、35个整车及发动机工厂。2014年，长安系中国品牌汽车产销累计突破1000万辆，2016年，长安汽车年销量突破300万辆，截至2018年7月，长安系中国品牌用户突破1700万，领跑中国品牌汽车。', '张宝林', null, null, '14064680935', '14064680935', '600100', '1276867268');
+INSERT INTO `compy` VALUES ('8', '003', '百度', '$2a$10$mTob2ggspmXyxdFmgSqdmuCGQVnwWnEFP6XUJhbjj7D3kBOQRvI5C', 'http://47.101.218.112:9999/group1/M00/00/00/rBEuj1zKrpCAOwAJAAAKINGUjR4034.jpg', '北京海淀区', 'IT互联网', '1', '2019-05-02 16:41:10', '346327343', '346g23323', '已上市', '曹响', '百度（纳斯达克：BIDU），全球最大的中文搜索引擎、最大的中文网站。1999年底,身在美国硅谷的李彦宏看到了中国互联网及中文搜索引擎服务的巨大发展潜力，抱着技术改变世界的梦想，他毅然辞掉硅谷的高薪工作，携搜索引擎专利技术，于 2000年1月1日在中关村创建了百度公司。\n“百度”二字,来自于八百年前南宋词人辛弃疾的一句词：众里寻他千百度。这句话描述了词人对理想的执着追求。', '向海龙', null, null, '15784586906', '15784586906', '700100', '1276867268653');
+INSERT INTO `compy` VALUES ('9', '006', '京东集团', '$2a$10$32vbRnrRWvceqDwtI8HeTOOat3OVOXLboO/lPY/VSk1xHkejZngLi', 'http://47.101.218.112:9999/group1/M00/00/01/rBEuj1zKyLCABqCKAAAdWmdBY80972.jpg', '北京大兴区', 'IT互联网', '1', '2019-05-02 18:36:43', '234e44', '24357gf46', '已上市', '李想', '京东于2004年正式涉足电商领域。2016年，京东集团市场交易额达到9392亿元*。京东是中国收入规模最大的互联网企业。2017年7月，京东再次入榜《财富》全球500强，位列第261位，成为排名最高的中国互联网企业，在全球仅次于亚马逊和Alphabet，位列互联网企业第三。2018年财富世界500强，京东位列181位，互联网公司排名第三。', '张雱', null, null, '15500234578', '15500234578', '800100', '468788654');
+
+-- ----------------------------
+-- Table structure for `content`
+-- ----------------------------
+DROP TABLE IF EXISTS `content`;
+CREATE TABLE `content` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `url` varchar(500) DEFAULT NULL,
+  `picpath` varbinary(300) DEFAULT NULL,
+  `grade` int(11) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of content
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `edu`
+-- ----------------------------
+DROP TABLE IF EXISTS `edu`;
+CREATE TABLE `edu` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userid` varchar(100) DEFAULT NULL,
+  `eduname` varchar(100) DEFAULT NULL,
+  `edulevel` varchar(100) DEFAULT NULL,
+  `edupro` varchar(100) DEFAULT NULL,
+  `startdate` datetime DEFAULT NULL,
+  `enddate` datetime DEFAULT NULL,
+  `content` varchar(500) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of edu
+-- ----------------------------
+INSERT INTO `edu` VALUES ('6', '5001150001@qq.com', '许昌学院', '本科', '计算机科学与技术', '2015-09-01 00:00:00', '2019-06-30 00:00:00', '担任班级团支书');
+INSERT INTO `edu` VALUES ('7', '5001150002@qq.com', '郑州大学', '本科', '物联网工程', '2010-09-01 00:00:00', '2014-06-23 00:00:00', '连续获得校奖学金\n获得计算机二级证书');
+INSERT INTO `edu` VALUES ('8', '5001150003@qq.com', '郑州职业技术学院', '大专', '金融管理', '2013-09-01 00:00:00', '2017-06-30 00:00:00', '参加校运动会获得一等奖');
+INSERT INTO `edu` VALUES ('9', '5001150004@qq.com', '西安交通大学', '本科', '软件工程', '2013-09-01 00:00:00', '2017-06-30 00:00:00', '参加蓝桥杯获得省二等奖\n通过全国大学生英语四级考试');
+INSERT INTO `edu` VALUES ('10', '5001150005@qq.com', '北京传媒大学', '本科', '产品设计', '2015-09-01 00:00:00', '2019-06-30 00:00:00', null);
+INSERT INTO `edu` VALUES ('11', '5001150007@qq.com', '河南大学', '本科', '计算机科学与技术', '2008-09-01 00:00:00', '2012-06-30 00:00:00', '拿到国家励志奖学金\n担任班长职位\n获得四级合格证书');
+INSERT INTO `edu` VALUES ('12', '5001150007@qq.com', '郑州大学', '硕士', '软件工程', '2013-09-01 00:00:00', '2016-06-30 00:00:00', '获得校奖学金\n获得英语六级合格证书');
+INSERT INTO `edu` VALUES ('13', '5001150008@qq.com', '哈尔滨大学', '本科', '互联网工程', '2014-09-01 00:00:00', '2018-06-30 00:00:00', null);
+INSERT INTO `edu` VALUES ('14', '5001150009@qq.com', '河南理工大学', '本科', null, null, null, '获得普通话二级甲等证书\n获得计算机二级证书');
+
+-- ----------------------------
+-- Table structure for `industry`
+-- ----------------------------
+DROP TABLE IF EXISTS `industry`;
+CREATE TABLE `industry` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of industry
+-- ----------------------------
+INSERT INTO `industry` VALUES ('1', 'IT互联网');
+INSERT INTO `industry` VALUES ('2', '金融');
+INSERT INTO `industry` VALUES ('3', '房地产建筑');
+INSERT INTO `industry` VALUES ('4', '教育培训');
+INSERT INTO `industry` VALUES ('5', '汽车');
+INSERT INTO `industry` VALUES ('6', '娱乐传媒');
+INSERT INTO `industry` VALUES ('7', '医疗健康');
+INSERT INTO `industry` VALUES ('8', '法律咨询');
+INSERT INTO `industry` VALUES ('9', '供应链物流');
+INSERT INTO `industry` VALUES ('10', '贸易');
+
+-- ----------------------------
+-- Table structure for `job`
+-- ----------------------------
+DROP TABLE IF EXISTS `job`;
+CREATE TABLE `job` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `compid` varchar(100) DEFAULT NULL,
+  `userid` varchar(100) DEFAULT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `postionid` varchar(200) DEFAULT NULL,
+  `skill` int(11) DEFAULT NULL,
+  `province` int(11) DEFAULT NULL,
+  `city` varchar(200) DEFAULT NULL,
+  `jobreq` varchar(1000) DEFAULT NULL,
+  `nature` varchar(300) DEFAULT NULL,
+  `level` varchar(50) DEFAULT NULL,
+  `exp` varchar(100) DEFAULT NULL,
+  `content` varchar(1000) DEFAULT NULL,
+  `startpd` varchar(100) DEFAULT NULL,
+  `endpd` varchar(100) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `creatine` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of job
+-- ----------------------------
+INSERT INTO `job` VALUES ('13', '004', '1304290922@qq.com', 'java工程师', 'IT互联网', null, null, '杭州余杭区文一西路', '1、本科或以上学历，计算机软件或相关专业；\n2、 精通Web编程，Java基础扎实，有2年以上使用Java语言进行分布式开发的经验 .在公司担任过架构师，核心技术骨干,有主导一定规模系统架构设计和核心代码的开发经验 。\n3、 熟悉面向对象设计开发，熟悉各种常用设计模式，并有在具体的应用场景落地经验 。', null, '本科', '经验不限', '1. 深入挖掘和分析业务需求，参与撰写技术方案和系统设计，确保系统的架构质量；\n2. 参与系统核心部分代码编写，疑难问题的解决；\n3. 维护和升级现有软件产品和系统，快速定位并修复现有软件缺陷；', '17k', '34k', '1', '2019-05-02 17:10:09');
+INSERT INTO `job` VALUES ('14', '004', '1304290922@qq.com', '生鲜配送员', '供应链物流', null, null, '成都武侯区', '1、吃苦耐劳有无经验均可，带薪培训。\n2、熟练驾驶电动车，有良好的交通安全意识\n3、能熟练使用智能手机，会使用手机导航功能', null, '初中及以下', '经验不限', '招聘生鲜配送，月薪6000--9000元，薪资无上限。在这里，有的就是单量，不差钱，有属于你的位置!只要不怕苦、不怕累、有无经验都可，以门店为中心用电瓶车在3公里范围内进行配送，全天候有单。', '6k', '9k', '0', '2019-05-02 17:11:47');
+INSERT INTO `job` VALUES ('15', '004', '1304290922@qq.com', '医药代表', '医疗健康', null, null, '徐州邳州市邳州市中医院', '1.乐于与人沟通。\n2.踏实，勤奋。\n3.拥有1年以上销售工作经验，尤其是药品、保健品销售经验优先。', null, '高中', '1年', '1.辖区内目标诊所药店的开发和维护，负责达成销售指标。\n2.辖区内目标诊所药店的客情公关、铺货、陈列、店员教育、产品维价、库存管理等。\n3.组织目标药店实施产品宣传展示、促销活动，树立企业及产品品牌。\n4.领导交办的其他任务。', '7k', '11', '0', '2019-05-02 17:13:30');
+INSERT INTO `job` VALUES ('16', '004', '1304290922@qq.com', '品控专员', '金融', null, null, '杭州市余杭区文一西路', '1、为人正直，个性严谨、皮实，责任感强。\n2、具备有良好的沟通协调能力、学习能力。\n3、具备一定的规则意识、风险意识，较好的逻辑思维能力及一定数据分析能力。', null, '本科', '2年', '1、负责淘宝大学合作第三方及中后台团队的行为规范和质量监督；\n2、负责淘宝大学合作第三方及中后台团队的制度拟定与优化，同时负责制定后的落地执行追踪；\n3、主动深入业务，对产品、项目、管理运营等均能开展内审，主动发掘问题，深度调查和快速诊断', '4k', '6k', '1', '2019-05-02 17:15:04');
+INSERT INTO `job` VALUES ('17', '004', '1304290922@qq.com', '前端开发', 'IT互联网', null, null, '杭州滨江区', '1、持续关注业界的新话题和新技术，研究过React，Vue等框架中的一种或以上；\n2、重视团队协作，愿意探寻和改进目前还不成熟的前端开发流程，了解各种常用工具；\n3、热爱前端技术，个性乐观开朗，逻辑性强，善于和各种背景的人沟通合作；', null, '大专', '经验不限', '1、设计核心产品的前端架构，并带领组员实现并持续优化；\n2、优化前端开发方式及协作流程，创建技术标准及规范，并孜孜不倦的布道；\n3、为前后端技术改进、网站性能优化、技术选型提供解决方案；', '10k', '15k', '0', '2019-05-02 17:16:37');
+INSERT INTO `job` VALUES ('18', '005', '1843396669@qq.com', 'web前端', 'IT互联网', null, null, '深圳南山区腾讯大厦', '本科及以上学历，计算机软件或相关专业，三年以上前端开发经验；\n熟悉W3C标准网站构建，有构建高性能网站应用相关经验；\n精通Javascript及主流JS框架，了解过 react vue 等框架，具备一定的框架设计能力；', null, '本科', '3年', '负责腾讯云计算产品的各平台开发工作；\n参与系统的需求分析、设计、编码等开发工作。', '15k', '25k', '0', '2019-05-02 17:18:59');
+INSERT INTO `job` VALUES ('19', '005', '1843396669@qq.com', '测试工程师', 'IT互联网', null, null, '上海徐汇区腾云大厦', '本科及以上学历，计算机相关专业； 2年以上的软件测试经验； 熟悉测试流程和各种测试技巧，较强的技术文档撰写能力； 具备自动化测试经验', null, '本科', '2年', '负责参与腾讯内容资讯分发项目的需求分析，关注项目需求的可测性，并能预先评估项目的风险； 负责软件项目的测试方案制定，用例编写及评审，设计测试工具、自动化框架； 负责实施软件测试，完成对产品的模块测试、集成测试、系统测试及自动化测试', '10k', '18k', '0', '2019-05-02 17:20:36');
+INSERT INTO `job` VALUES ('20', '005', '1843396669@qq.com', '视频编导实习生', '娱乐传媒', null, null, '北京海淀区领航科技大厦', '1、大三/研一/研二在校生优先，影视类专业院优先，校每周保证实习4-5天，连续实习3个月以上；\n2、了解短片创作规律，有一定的大众情感洞察能力以及影片内容策划能力；\n3、熟练使用Pr/FCP、AE等相关合成制作软件和非线性编辑软件；具备独立完成视频剪辑、合成制作的能力和经验；', null, '本科', '经验不限', '1、参与短视频精品项目前期创意策划；\n2、协助制片人在项目执行阶段的监制工作；\n3、参与部分项目的剪辑工作，进行项目宣发物料的后期剪辑；', '2k', '6k', '0', '2019-05-02 17:21:46');
+INSERT INTO `job` VALUES ('21', '003', '435302451@qq.com', '数据分析师', 'IT互联网', null, null, '深圳市 南山区', '1. 经济管理、数学、计算机等相关专业 \n2. 2年以上数据分析或数据运营经验，掌握Hive或SQL，精通Excel; \n3. 对数据应用产品有一定认识，能站在产品角度思考，解决产品问题 \n4. 对数据敏感并有很强的洞察能力，快速从繁杂数据中发现问题；', null, '本科', '2年', '1. 针对产品运营链条的各类关键数据，建立完整的数据分析体系，通过数据分析驱动业务优化迭代；\n2. 深入理解业务、产品、用户和场景，通过数据分析洞察业务关联，全面梳理产品运营体系； \n3. 独立完成各项数据报表自动化需求； \n4. 根据各类数据结果，并根据业务需求，提出运营或产品建议；', '10k', '20k', '1', '2019-05-02 17:23:50');
+INSERT INTO `job` VALUES ('22', '003', '435302451@qq.com', '刑事法务顾问', '法律咨询', null, null, '北京海淀区百度大厦', '协助业务部门规避风险\n负责调查网络地下产业\n挖掘相关犯罪行为\n与司法机关配合，针对相关网络犯罪行为进行打击', null, '本科', '5年', '本科以上学历\n5年以上公安相关政府岗位经验；有刑侦、网安、经侦警种相关经验优先\n熟悉计算机网络犯罪相关法律法规，有丰富办案经验\n有较强观察和应变能力，优秀的人际交往和协调能力', '28k', '30k', '0', '2019-05-02 17:26:17');
+INSERT INTO `job` VALUES ('23', '003', '435302451@qq.com', 'java开发', 'IT互联网', null, null, '北京海淀区百度科技园', '科（含）以上学历\n熟练掌握JAVA，对JVM虚拟机有一定的了解，并具备一定的问题排查调优能力 \n熟练掌握Spring、ibatis、SpringMVC等主流的开发框架 \n对常用的redis、kafka、mongodb等工具系统有一定的了解', null, '本科', '经验不限', '-负责品牌广告业务平台及其相关系统的研发 \n-负责现有系统的问题分析和改进，提高系统性能，保证系统稳定性 \n-持续改进系统架构、核心算法或者核心技术等，保证系统高性能、高可用性和高可扩展性 -新技术预研，完成项目的选型和设计，难点公关', '5k', '15k', '0', '2019-05-02 17:28:43');
+INSERT INTO `job` VALUES ('24', '003', '435302451@qq.com', '机器学习', 'IT互联网', null, null, '北京海淀区百度科技园', '-计算机或相关专业，本科及以上学历，2年以上工作经验，精通C/C++或python语言编程，熟悉Linux/Unix系统、shell编程、网络编程和多线程编程技术 \n-有深度学习、大数据系统、数据挖掘、机器学习和浏览器研发经验优先', null, '本科', '2年', '-负责基础数据挖掘、核心技术研究和开发以及相关算法优化 \n-面向互联网海量资源，包括但不限于资源发现、价值判断、内容分析、特征计算等工作 \n-以机器学习、数据挖掘、自然语言处理技术应用为目标，利用知识构建、知识化搜索服务能力', '15k', '25k', '0', '2019-05-02 17:30:06');
+INSERT INTO `job` VALUES ('26', '001', '1138575103@qq.com', '地产中介', '房地产', null, null, '成都双流区', '1.本科及以上学历，热爱销售工作；接受2018届实习生。\n2.善于沟通，有较强的语言表达能力。\n3.有较强的进取心、学习能力，勇于挑战自我，不甘平庸。', null, '大专', '经验不限', '1.负责线上渠道的房产信息维护，打造个人的专业品牌。\n2.为客户提供优质的看房体验。\n3.按客户需求定制专属金融理财产品。', '4k', '8k', '0', '2019-05-02 17:36:27');
+INSERT INTO `job` VALUES ('27', '001', '1138575103@qq.com', '地产置业顾问', '房地产', null, null, '成都武侯区', '学历要求：统招大专学历！（毕业生，应届毕业生均可）', null, '大专', '经验不限', '1、负责维护各个线上渠道的房源，保证信息准确、真实；\n2、负责客户的接待、咨询工作，为客户提供专业的房地产置业咨询服务；\n3、了解客户需求，提供合适房源；\n4、负责商务谈判、合同签署以及房屋过户手续办理等服务工作；', '5k', '8k', '0', '2019-05-02 17:38:30');
+INSERT INTO `job` VALUES ('28', '004', '1304290922@qq.com', 'java研发', 'IT互联网', null, null, '北京朝阳区', '1.5年及以上JAVA实际开发经验，有大型互联网核心开发经验优先。\n2.JAVA基础扎实，熟悉IO、多线程等技术，熟悉分布式架构与常用设计模式。\n3.熟练掌握Spring、SpringMVC、MyBatis、Redis等常用技术', null, '本科', '5年', '1.公司北京地区互联网技术负责人\n2.系统的需求分析设计、模块设计、开发与维护\n3.解决公司的技术难点和技术把关\n4.参与系统架构设计', '15k', '25k', '1', '2019-05-10 15:43:17');
+
+-- ----------------------------
+-- Table structure for `postion`
+-- ----------------------------
+DROP TABLE IF EXISTS `postion`;
+CREATE TABLE `postion` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parentid` int(11) DEFAULT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of postion
+-- ----------------------------
+INSERT INTO `postion` VALUES ('1', null, '计算机');
+
+-- ----------------------------
+-- Table structure for `pratice`
+-- ----------------------------
+DROP TABLE IF EXISTS `pratice`;
+CREATE TABLE `pratice` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `userid` varchar(100) DEFAULT NULL,
+  `compyname` varchar(100) DEFAULT NULL,
+  `industryid` varchar(100) DEFAULT NULL,
+  `department` varchar(100) DEFAULT NULL,
+  `postionid` int(11) DEFAULT NULL,
+  `postiname` varchar(100) DEFAULT NULL,
+  `startdate` datetime DEFAULT NULL,
+  `enddate` datetime DEFAULT NULL,
+  `content` varchar(500) DEFAULT NULL,
+  `grade` varchar(300) DEFAULT NULL,
+  `skillid` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of pratice
+-- ----------------------------
+INSERT INTO `pratice` VALUES ('3', '5001150001@qq.com', '北京枫叶有限公司', 'IT互联网', '技术部', null, null, '2018-09-01 00:00:00', '2018-12-31 00:00:00', '负责网站的开发', null, null);
+INSERT INTO `pratice` VALUES ('4', '5001150002@qq.com', '山东富士康', 'IT互联网', '技术', null, '成员', '2016-02-01 00:00:00', '2016-12-30 00:00:00', '负责网站维护与测试', '很好', null);
+INSERT INTO `pratice` VALUES ('5', '5001150004@qq.com', '甲骨文培训', '教育培训', '', null, '学员', '2016-03-01 00:00:00', '2016-10-30 00:00:00', '学习web前端,JAVA语言', null, null);
+INSERT INTO `pratice` VALUES ('6', '5001150004@qq.com', '北京雅丽有限公司', 'IT互联网', '技术', null, null, '2017-02-27 00:00:00', '2018-12-30 00:00:00', '负责研究企业信息服务领域的知识自动提取，问题答案生成和推荐，基于语音的用户交互，用户服务意图的识别等等，覆盖IT，人事，财务，采购，行政等多种业务服务场景', null, null);
+INSERT INTO `pratice` VALUES ('7', '5001150007@qq.com', '天津理工大学', '教育培训', '教育', null, '教师', '2018-03-01 00:00:00', '2019-03-30 00:00:00', '教授java课程', '获得同学们的认可', null);
+INSERT INTO `pratice` VALUES ('8', '5001150009@qq.com', '枫叶公司', 'IT互联网', '技术部', null, '组员', null, null, null, null, null);
+
+-- ----------------------------
+-- Table structure for `produc`
+-- ----------------------------
+DROP TABLE IF EXISTS `produc`;
+CREATE TABLE `produc` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `compyid` varchar(100) DEFAULT NULL,
+  `produname` varchar(100) DEFAULT NULL,
+  `producontent` varchar(400) DEFAULT NULL,
+  `produurl` varchar(300) DEFAULT NULL,
+  `produpic` varchar(300) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of produc
+-- ----------------------------
+INSERT INTO `produc` VALUES ('1', '004', '淘宝', '非常好用 nice', 'http://alibaba.com', 'http://47.101.218.112:9999/group1/M00/00/00/rBEuj1yUOu2AZk-9AAAdHkhYeIY126.jpg');
+INSERT INTO `produc` VALUES ('2', '004', '支付宝', '非常好用', 'http://alibaba/zhifubao.com', 'http://47.101.218.112:9999/group1/M00/00/00/rBEuj1yUO8WALvsRAAAdszkVv-o212.png');
+INSERT INTO `produc` VALUES ('3', '004', '天猫', '32', '32', 'http://47.101.218.112:9999/group1/M00/00/00/rBEuj1ybBxqAUvMAAAAdHkhYeIY858.ico');
+INSERT INTO `produc` VALUES ('4', '003', '1', '1', '1', '1');
+
+-- ----------------------------
+-- Table structure for `project`
+-- ----------------------------
+DROP TABLE IF EXISTS `project`;
+CREATE TABLE `project` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userid` varchar(100) DEFAULT NULL,
+  `projectname` varchar(200) DEFAULT NULL,
+  `role` varchar(100) DEFAULT NULL,
+  `url` varchar(300) DEFAULT NULL,
+  `content` varchar(500) DEFAULT NULL,
+  `grade` varchar(500) DEFAULT NULL,
+  `startdate` datetime DEFAULT NULL,
+  `enddate` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of project
+-- ----------------------------
+INSERT INTO `project` VALUES ('5', '5001150001@qq.com', '图书管理系统', '开发者', null, '实现图书馆中借书，还书，新书上架等基本过程', 'B+', '2017-11-10 00:00:00', '2017-12-01 00:00:00');
+INSERT INTO `project` VALUES ('6', '5001150004@qq.com', '即时通讯系统', '组长', null, '实现两人聊天，多人聊天\n实现动态发布模块\n实现查询天气模块', null, '2015-11-19 00:00:00', '2015-12-30 00:00:00');
+INSERT INTO `project` VALUES ('7', '5001150008@qq.com', '人脸识别介绍', '主要负责人', null, null, null, null, null);
+INSERT INTO `project` VALUES ('8', '5001150008@qq.com', '档案管理系统', '小组成员', null, null, null, null, null);
+
+-- ----------------------------
+-- Table structure for `resume`
+-- ----------------------------
+DROP TABLE IF EXISTS `resume`;
+CREATE TABLE `resume` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userid` varchar(100) DEFAULT NULL,
+  `peradv` varchar(300) DEFAULT NULL,
+  `startpd` varchar(50) DEFAULT NULL,
+  `endpd` varchar(50) DEFAULT NULL,
+  `industryid` varchar(100) DEFAULT NULL,
+  `socialurl` varchar(300) DEFAULT NULL,
+  `provinceid` int(11) DEFAULT NULL,
+  `cityid` varchar(100) DEFAULT NULL,
+  `postionid` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of resume
+-- ----------------------------
+INSERT INTO `resume` VALUES ('4', '5001150001@qq.com', '活泼开朗，热情大方，熟悉JAVA语言', '5k', '15k', null, null, null, '北京', '技术');
+INSERT INTO `resume` VALUES ('5', '5001150002@qq.com', '熟练 HTML/CSS/JS 等技术,思路清晰，具备良好的沟通能力和团队协作', '10k', '20k', null, null, null, '上海，杭州', '技术');
+INSERT INTO `resume` VALUES ('6', '5001150003@qq.com', '吃苦耐劳，善于沟通交流', '5k', '10k', null, null, null, '杭州', '产品');
+INSERT INTO `resume` VALUES ('7', '5001150003@qq.com', '吃苦耐劳，善于沟通交流', '5k', '10k', null, null, null, '杭州', '产品');
+INSERT INTO `resume` VALUES ('8', '5001150003@qq.com', '吃苦耐劳，善于沟通交流', '5k', '10k', null, null, null, '杭州', '产品');
+INSERT INTO `resume` VALUES ('9', '5001150003@qq.com', '吃苦耐劳，善于沟通交流', '5k', '10k', null, null, null, '杭州', '产品');
+INSERT INTO `resume` VALUES ('10', '5001150004@qq.com', '学习能力强，适应能力好，抗压能力强', '8k', '15k', null, null, null, '上海', '技术');
+INSERT INTO `resume` VALUES ('11', '5001150005@qq.com', '具有创业之心，勇于接受挑战，乐于为自己认定的事情付出巨大精力，正能量，积极影响他人与团队', '5k', '10k', null, null, null, '上海，北京', '设计');
+INSERT INTO `resume` VALUES ('12', '5001150007@qq.com', '能够快速理解业务，通过良好的沟通表达能力和自我驱动动力，积极影响他人', '10k', '30k', null, null, null, '北上广', '技术');
+INSERT INTO `resume` VALUES ('13', '5001150008@qq.com', '有良好英语沟通能力，精通Java及Web应用的开发', '5k', '10k', null, null, null, '北京、天津', '技术');
+INSERT INTO `resume` VALUES ('14', '5001150009@qq.com', '具有高度的责任心与自驱力，良好的沟通协作、应急响应与处理问题的能力，熟悉分布式系统的设计和应用，精通Java及Web应用的开发', '10k', '无', null, null, null, '杭州', '技术');
+INSERT INTO `resume` VALUES ('15', '5001150006@qq.com', '有强烈的责任心，抗压能力强', '5k', '10k', null, null, null, '上海', '产品');
+
+-- ----------------------------
+-- Table structure for `resumesplit`
+-- ----------------------------
+DROP TABLE IF EXISTS `resumesplit`;
+CREATE TABLE `resumesplit` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `resumeid` varchar(100) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `dataid` int(11) DEFAULT NULL,
+  `recomend` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of resumesplit
+-- ----------------------------
+INSERT INTO `resumesplit` VALUES ('11', '435302451@qq.com', '1', '7', '1');
+INSERT INTO `resumesplit` VALUES ('12', '1138575103@qq.com', '1', '7', '1');
+INSERT INTO `resumesplit` VALUES ('13', '958395917@qq.com', '2', '7', '0');
+INSERT INTO `resumesplit` VALUES ('14', '435302451@qq.com', '1', '8', '0');
+INSERT INTO `resumesplit` VALUES ('15', '435302451@qq.com', '1', '8', '0');
+INSERT INTO `resumesplit` VALUES ('16', '958395917@qq.com', '1', '8', '0');
+INSERT INTO `resumesplit` VALUES ('17', '435302451@qq.com', '1', '8', '0');
+INSERT INTO `resumesplit` VALUES ('18', '435302451@qq.com', '2', '8', '0');
+INSERT INTO `resumesplit` VALUES ('19', '958395917@qq.com', '3', '8', '0');
+INSERT INTO `resumesplit` VALUES ('20', '1843396669@qq.com', '4', '8', '0');
+INSERT INTO `resumesplit` VALUES ('21', '5001150002@qq.com', '1', '10', '0');
+INSERT INTO `resumesplit` VALUES ('22', '5001150004@qq.com', '1', '10', '1');
+INSERT INTO `resumesplit` VALUES ('23', '5001150007@qq.com', '2', '10', '0');
+INSERT INTO `resumesplit` VALUES ('24', '5001150009@qq.com', '2', '10', '0');
+INSERT INTO `resumesplit` VALUES ('25', '5001150002@qq.com', '1', '11', '1');
+INSERT INTO `resumesplit` VALUES ('26', '5001150004@qq.com', '2', '11', '0');
+INSERT INTO `resumesplit` VALUES ('27', '5001150007@qq.com', '3', '11', '0');
+INSERT INTO `resumesplit` VALUES ('28', '5001150008@qq.com', '4', '11', '0');
+INSERT INTO `resumesplit` VALUES ('29', '5001150009@qq.com', '5', '11', '0');
+
+-- ----------------------------
+-- Table structure for `user`
+-- ----------------------------
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `userid` varchar(100) DEFAULT NULL,
+  `username` varchar(100) DEFAULT NULL,
+  `password` varchar(300) DEFAULT NULL,
+  `sex` varchar(20) DEFAULT NULL,
+  `age` int(11) DEFAULT NULL,
+  `workstaredate` datetime DEFAULT NULL,
+  `createdate` datetime DEFAULT NULL,
+  `status` varchar(20) DEFAULT NULL,
+  `picpath` varchar(300) DEFAULT NULL,
+  `filepath` varchar(500) DEFAULT NULL,
+  `filename` varchar(200) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `weixin` varchar(100) DEFAULT NULL,
+  `tel` varchar(100) DEFAULT NULL,
+  `rolereq` varchar(100) DEFAULT NULL,
+  `compid` varchar(100) DEFAULT NULL,
+  `level` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of user
+-- ----------------------------
+INSERT INTO `user` VALUES ('11', '1304290922@qq.com', '朱天琪', '$2a$10$HLh3KLq3gU/LCEZmRmE2VOSqjRitQGfRPP4d.pfs0vuML5Q1ZRmmm', '女', '25', null, null, '0', 'http://47.101.218.112:9999/group1/M00/00/00/rBEuj1zKsyWAesNdAAAX1Wugmjc732.png', null, null, '15225660991', '15225660991', '15225660991', '1', '004', '本科');
+INSERT INTO `user` VALUES ('12', '1843396669@qq.com', '冯小妮', '$2a$10$VKgs8iZ.U3bFtRTIxvSg5ORsJ3m2rvf1pmI0x1z0n708zi85a0Af2', null, null, null, null, '0', 'http://47.101.218.112:9999/group1/M00/00/00/rBEuj1zKqUGAJ9gYAAjUOBNL-s8003.jpg', null, null, null, null, null, '1', '005', null);
+INSERT INTO `user` VALUES ('13', '5001150001@qq.com', '王楠楠', '$2a$10$5JKeCP/wvD7Mtzva7/6ZYuA5GZJ/2HFy9SUtDphyZ.SjWOVLxCizO', '女', '23', null, null, '0', 'http://47.101.218.112:9999/group1/M00/00/00/rBEuj1zKqoyAcRSzAAOmIAJa6aM813.jpg', null, null, '15902730078', '15902730078', '15902730078', '0', null, '本科');
+INSERT INTO `user` VALUES ('14', '5001150002@qq.com', '刘宇', '$2a$10$3nfF1p4UsKBzxbl0b8L3K.8b3MBA/V.Yf5uT3sS5pPR0Fi2BU5sTC', '男', '28', null, null, '0', 'http://47.101.218.112:9999/group1/M00/00/00/rBEuj1zKvSiAelzTAAAjpQrgRfw016.jpg', null, null, '14597609097', '14597609097', '14597609097', '0', null, '本科');
+INSERT INTO `user` VALUES ('15', '5001150003@qq.com', '王斌', '$2a$10$eh8IuHn2aDuK..8jhynf9.iExxzdAPK.Z49KWIjXWTGdY.8zSiwZG', '男', '27', null, null, '0', 'http://47.101.218.112:9999/group1/M00/00/01/rBEuj1zKvZmAMpoPAAAczrtqr4o218.jpg', null, null, '14687934509', '14687934509', '14687934509', '0', null, '大专');
+INSERT INTO `user` VALUES ('16', '5001150004@qq.com', '刘志强', '$2a$10$LjNJ2s5ZZH66nuEK4TUVeu40t13q62istVn5L309oKALSL4LQc7fi', '男', '25', null, null, '0', 'http://47.101.218.112:9999/group1/M00/00/01/rBEuj1zKvvyADYfjAAbnDjdvC_M866.jpg', null, null, '15058974566', '15058974566', '15058974566', '0', null, '本科');
+INSERT INTO `user` VALUES ('17', '5001150005@qq.com', '李美嘉', '$2a$10$VVtWm5yOkCW9n/a2F4A/HeqGRmupwebN0LEmkj2KVbq45n8Z8ZkB2', '女', '23', null, null, '0', 'http://47.101.218.112:9999/group1/M00/00/01/rBEuj1zKwRuAZfVmAAAjsMiWp5g203.jpg', null, null, '15097466758', '15097466758', '15097466758', '0', null, '本科');
+INSERT INTO `user` VALUES ('18', '5001150006@qq.com', '韩语', '$2a$10$4uscX0h4jqMJCFo32cmK3.bJ8ojA0LujrpOsrOH5STeuKfo4I2CAS', '男', '23', null, null, '0', 'http://47.101.218.112:9999/group1/M00/00/01/rBEuj1zKxbaAW07lAABHCC2JaEM209.jpg', null, null, '18466092353', '18466092353', '18466092353', '0', null, '本科');
+INSERT INTO `user` VALUES ('19', '5001150007@qq.com', '丁峰', '$2a$10$1sGOzot0fzPxG94nWwItfOIJxYfR6WtkmUEQ5gCmVw79aCcDeXKze', '男', '30', null, null, '0', 'http://47.101.218.112:9999/group1/M00/00/01/rBEuj1zKwcCAMSn5AACKPso-u3s418.jpg', null, null, '18463770907', '18463770907', '18463770907', '0', null, '硕士');
+INSERT INTO `user` VALUES ('20', '5001150008@qq.com', '李思雨', '$2a$10$rgLwURLGgu/j5Ii.b7yDJuE3CR1lmLwaGGMkzlex958WQNmvQmN0W', '女', '25', null, null, '0', 'http://47.101.218.112:9999/group1/M00/00/01/rBEuj1zKw5uAJOBQAAR7L6RtHhI733.jpg', null, null, '13068478879', '13068478879', '13068478879', '0', null, '本科');
+INSERT INTO `user` VALUES ('21', '5001150009@qq.com', '郑启明', '$2a$10$5BDdTEq5VOTcChQzh3RlaeUqiESQ91j/BcTxwmZwT/wGOES6htvZy', '男', '33', null, null, '0', 'http://47.101.218.112:9999/group1/M00/00/01/rBEuj1zKxKmAfQN0AAA-ma0JRNM555.jpg', null, null, '15085793398', '15085793398', '15085793398', '0', null, '本科');
+INSERT INTO `user` VALUES ('22', '5001150010@qq.com', '秦奋', '$2a$10$JxuA/LzHxFoSpdJd/oDbc.sqzV9NH0KRFJdqfCwJ1LcMJSb8YDAWy', null, null, null, null, '0', null, null, null, null, null, null, '0', null, null);
+INSERT INTO `user` VALUES ('23', '435302451@qq.com', '曹响', '$2a$10$kZ4esZZ/LIkuVLnvZ1HiVeZgi1cKY9u/tuu1leGFIVJO0RlG42fkm', '男', '30', null, null, '0', 'http://47.101.218.112:9999/group1/M00/00/00/rBEuj1zKr0aAY4lXAAAKINGUjR4879.jpg', null, null, '15784586906', '15784586906', '15784586906', '1', '003', null);
+INSERT INTO `user` VALUES ('24', '1138575103@qq.com', '武峰', '$2a$10$8V8N5m5m6tH0.eyvZHdmm.hgqpCAcyTFXU5O6XlXP5hWDMb0rTNua', '男', '33', null, null, '0', 'http://47.101.218.112:9999/group1/M00/00/00/rBEuj1zKstaAJFJsAAANFikLt8o875.jpg', null, null, '15278700402', '15278700402', '15278700402', '1', '001', '硕士');
+INSERT INTO `user` VALUES ('25', '946357298@qq.com', '韩昱', '$2a$10$1cK1gEcxlKC4wU/yXr24BOkSIgFbzPQKjdHRt40zx1j5PZH2yxFZy', null, null, null, null, '0', null, null, null, null, null, null, '0', null, null);
+INSERT INTO `user` VALUES ('26', '123', '123', '$2a$10$blByizXeIU5gdvAxml131up.DhJ5bGpmDn5LtGvk9Sc/j9Dn3t7q2', null, null, null, null, '0', null, null, null, null, null, null, '0', null, null);
+
+-- ----------------------------
+-- Table structure for `userdata`
+-- ----------------------------
+DROP TABLE IF EXISTS `userdata`;
+CREATE TABLE `userdata` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userid` varchar(100) DEFAULT NULL,
+  `dataid` int(11) DEFAULT NULL,
+  `num` int(11) DEFAULT NULL,
+  `startnum` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of userdata
+-- ----------------------------
+INSERT INTO `userdata` VALUES ('3', '1138575103@qq.com', '7', '1', '1');
+INSERT INTO `userdata` VALUES ('4', '958395917@qq.com', '7', '1', '2');
+INSERT INTO `userdata` VALUES ('5', '1138575103@qq.com', '9', '1', '1');
+INSERT INTO `userdata` VALUES ('6', '1138575103@qq.com', '9', '2', '2');
+INSERT INTO `userdata` VALUES ('7', '5001150010@qq.com', '10', '1', '1');
+INSERT INTO `userdata` VALUES ('8', '5001150009@qq.com', '11', '2', '1');
+
+-- ----------------------------
+-- Table structure for `userjob`
+-- ----------------------------
+DROP TABLE IF EXISTS `userjob`;
+CREATE TABLE `userjob` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `jobid` int(11) DEFAULT NULL,
+  `userid` varchar(100) DEFAULT NULL,
+  `createuserid` varchar(100) DEFAULT NULL,
+  `createtime` date DEFAULT NULL,
+  `status` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of userjob
+-- ----------------------------
+INSERT INTO `userjob` VALUES ('8', '23', '5001150001@qq.com', '435302451@qq.com', '2019-05-02', '未回复');
+INSERT INTO `userjob` VALUES ('9', '17', '5001150001@qq.com', '1304290922@qq.com', '2019-05-02', '未回复');
+INSERT INTO `userjob` VALUES ('10', '13', '5001150002@qq.com', '1304290922@qq.com', '2019-05-02', '未回复');
+INSERT INTO `userjob` VALUES ('11', '21', '5001150002@qq.com', '435302451@qq.com', '2019-05-02', '未回复');
+INSERT INTO `userjob` VALUES ('12', '19', '5001150002@qq.com', '1843396669@qq.com', '2019-05-02', '未回复');
+INSERT INTO `userjob` VALUES ('13', '14', '5001150003@qq.com', '1304290922@qq.com', '2019-05-02', '面试');
+INSERT INTO `userjob` VALUES ('14', '21', '5001150004@qq.com', '435302451@qq.com', '2019-05-02', '未回复');
+INSERT INTO `userjob` VALUES ('15', '18', '5001150004@qq.com', '1843396669@qq.com', '2019-05-02', '未回复');
+INSERT INTO `userjob` VALUES ('16', '13', '5001150004@qq.com', '1304290922@qq.com', '2019-05-02', '未回复');
+INSERT INTO `userjob` VALUES ('17', '20', '5001150005@qq.com', '1843396669@qq.com', '2019-05-02', '未回复');
+INSERT INTO `userjob` VALUES ('18', '21', '5001150007@qq.com', '435302451@qq.com', '2019-05-02', '未回复');
+INSERT INTO `userjob` VALUES ('19', '18', '5001150007@qq.com', '1843396669@qq.com', '2019-05-02', '未回复');
+INSERT INTO `userjob` VALUES ('20', '13', '5001150007@qq.com', '1304290922@qq.com', '2019-05-02', '未回复');
+INSERT INTO `userjob` VALUES ('21', '21', '5001150008@qq.com', '435302451@qq.com', '2019-05-02', '未回复');
+INSERT INTO `userjob` VALUES ('22', '21', '5001150009@qq.com', '435302451@qq.com', '2019-05-02', '未回复');
+INSERT INTO `userjob` VALUES ('23', '13', '5001150009@qq.com', '1304290922@qq.com', '2019-05-02', '未回复');
+INSERT INTO `userjob` VALUES ('24', '17', '5001150006@qq.com', '1304290922@qq.com', '2019-05-02', '未回复');
+INSERT INTO `userjob` VALUES ('25', '16', '5001150006@qq.com', '1304290922@qq.com', '2019-05-02', '未回复');
+INSERT INTO `userjob` VALUES ('26', '16', '5001150003@qq.com', '1304290922@qq.com', '2019-05-02', '未回复');
+INSERT INTO `userjob` VALUES ('27', '16', '5001150002@qq.com', '1304290922@qq.com', '2019-05-02', '未回复');
+INSERT INTO `userjob` VALUES ('28', '16', '5001150005@qq.com', '1304290922@qq.com', '2019-05-02', '未回复');
+
+-- ----------------------------
+-- Table structure for `workdata`
+-- ----------------------------
+DROP TABLE IF EXISTS `workdata`;
+CREATE TABLE `workdata` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `size` int(11) DEFAULT NULL,
+  `userid` varchar(100) DEFAULT NULL,
+  `jobid` int(11) DEFAULT NULL,
+  `enddate` date DEFAULT NULL,
+  `createdate` date DEFAULT NULL,
+  `num` int(11) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `status` varchar(100) DEFAULT NULL,
+  `dataname` varchar(100) DEFAULT NULL,
+  `startnum` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of workdata
+-- ----------------------------
+INSERT INTO `workdata` VALUES ('10', '4', '1304290922@qq.com', '13', '2019-05-15', '2019-05-02', '1', '1', '开放', 'java工程师', '2');
+INSERT INTO `workdata` VALUES ('11', '5', '435302451@qq.com', '21', '2019-05-15', '2019-05-10', '3', '1', '开放', '数据分析师', '3');
