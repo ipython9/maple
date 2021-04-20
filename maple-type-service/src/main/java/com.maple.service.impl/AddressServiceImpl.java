@@ -12,13 +12,13 @@ import com.maple.pojo.AddressExample.Criteria;
 import com.maple.service.AddressService;
 
 import entity.PageResult;
+import org.springframework.stereotype.Component;
 
 /**
  * 服务实现层
  * @author Administrator
  *
  */
-@Service
 public class AddressServiceImpl implements AddressService {
 
 	@Autowired

@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo" xmlns:mvc="http://www.springframework.org/schema/mvc"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
-        http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
-        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd        http://dubbo.apache.org/schema/dubbo        http://dubbo.apache.org/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <dubbo:protocol name="dubbo" port="20881"></dubbo:protocol>
-    <dubbo:application name="maple-type-service"/>
-    <dubbo:registry address="zookeeper://47.101.218.112:2181"/>
-    <dubbo:annotation package="com.maple.service.impl" />
+    <!-- 提供方应用信息，用于计算依赖关系 -->
+    <dubbo:application name="maple-type-service"  />
+
+    <!-- 使用zk -->
+    <dubbo:registry address="zookeeper://127.0.0.1:2181" />
+
+    <!-- 用dubbo协议在20880端口暴露服务 -->
+    <dubbo:protocol name="dubbo" port="20880" />
+
+    <!-- 声明需要暴露的服务接口 -->
+    <dubbo:service interface="com.maple.service.AddressService" ref="addressService" />
+<!--    <context:component-scan base-package="com.maple.service">-->
+<!--    </context:component-scan>-->
+    <bean id="addressService" class="com.maple.service.impl.AddressServiceImpl" />
 </beans>
