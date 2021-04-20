@@ -12,11 +12,11 @@
 
     <artifactId>maple-common</artifactId>
 <dependencies>
-    <dependency>
-        <groupId>org.csource</groupId>
-        <artifactId>fastdfs-client-java</artifactId>
-        <version>1.25</version>
-    </dependency>
+<!--    <dependency>-->
+<!--        <groupId>org.csource</groupId>-->
+<!--        <artifactId>fastdfs-client-java</artifactId>-->
+<!--        <version>1.25</version>-->
+<!--    </dependency>-->
 </dependencies>
 
 </project>
