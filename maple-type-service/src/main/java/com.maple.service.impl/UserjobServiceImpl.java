@@ -1,6 +1,5 @@
 package com.maple.service.impl;
 
-import com.alibaba.dubbo.config.annotation.Service;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -13,6 +12,7 @@ import com.maple.pojo.UserjobExample.Criteria;
 import com.maple.service.UserJobService;
 import entity.JobModel;
 import entity.PageResult;
+import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;

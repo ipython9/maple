@@ -2,8 +2,8 @@ package com.maple.service.impl;
 import java.util.List;
 
 import com.maple.mapper.AddressMapper;
+import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.alibaba.dubbo.config.annotation.Service;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.maple.pojo.Address;
@@ -12,13 +12,12 @@ import com.maple.pojo.AddressExample.Criteria;
 import com.maple.service.AddressService;
 
 import entity.PageResult;
-import org.springframework.stereotype.Component;
-
 /**
  * 服务实现层
  * @author Administrator
  *
  */
+@Service
 public class AddressServiceImpl implements AddressService {
 
 	@Autowired
