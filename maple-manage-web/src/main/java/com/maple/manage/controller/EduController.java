@@ -5,9 +5,8 @@ import com.maple.service.EduService;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.alibaba.dubbo.config.annotation.Reference;
+import org.apache.dubbo.config.annotation.Reference;
 import com.maple.pojo.Edu;
-import com.maple.service.EduService;
 
 import entity.PageResult;
 import entity.Result;

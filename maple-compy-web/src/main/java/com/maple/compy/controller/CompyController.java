@@ -1,6 +1,6 @@
 package com.maple.compy.controller;
 
-import com.alibaba.dubbo.config.annotation.Reference;
+import org.apache.dubbo.config.annotation.Reference;
 import com.maple.pojo.Compy;
 import com.maple.pojo.Industry;
 import com.maple.service.CompyService;
