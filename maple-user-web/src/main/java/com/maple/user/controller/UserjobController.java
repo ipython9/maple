@@ -1,8 +1,6 @@
 package com.maple.user.controller;
 
-import com.alibaba.dubbo.config.annotation.Reference;
-import com.maple.pojo.Job;
-import com.maple.pojo.User;
+import org.apache.dubbo.config.annotation.Reference;
 import com.maple.pojo.Userjob;
 import com.maple.service.UserJobService;
 import entity.PageResult;
