@@ -8,18 +8,18 @@
 						http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
    
 	<!-- 设置页面不登陆也可以访问 -->
-	<http pattern="/*.html" security="none"></http>
-	<http pattern="/*.jsp" security="none"></http>
-	<http pattern="/css/**" security="none"></http>
-	<http pattern="/img/**" security="none"></http>
-	<http pattern="/js/**" security="none"></http>
-	<http pattern="/plugins/**" security="none"></http>
-	<http pattern="/user/add.do" security="none"></http>
-	<http pattern="/user/findAll.do" security="none"></http>
-	<http pattern="/user/JobModel.do" security="none"></http>
-	<http pattern="/user/CompyModel.do" security="none"></http>
-	<!--<http pattern="/user/jobdetail.do" security="none"></http>-->
-	<!--<http pattern="/user/compydetail.do" security="none"></http>-->
+	<http pattern="/*.html" security="none"/>
+	<http pattern="/*.jsp" security="none"/>
+	<http pattern="/css/**" security="none"/>
+	<http pattern="/img/**" security="none"/>
+	<http pattern="/js/**" security="none"/>
+	<http pattern="/plugins/**" security="none"/>
+	<http pattern="/user/add.do" security="none"/>
+	<http pattern="/user/findAll.do" security="none"/>
+	<http pattern="/user/JobModel.do" security="none"/>
+	<http pattern="/user/CompyModel.do" security="none"/>
+	<http pattern="/user/jobdetail.do" security="none"/>
+	<http pattern="/user/compydetail.do" security="none"/>
 	<!-- 页面的拦截规则    use-expressions:是否启动SPEL表达式 默认是true -->
 	<http use-expressions="false">
 		<!-- 当前用户必须有ROLE_USER的角色 才可以访问根目录及所属子目录的资源 -->
@@ -36,13 +36,13 @@
 	<!-- 认证管理器 -->
 	<authentication-manager>
 		<authentication-provider user-service-ref="userDetailService">	
-			<password-encoder ref="bcryptEncoder"></password-encoder>
+			<password-encoder ref="bcryptEncoder"/>
 		</authentication-provider>	
 	</authentication-manager>
 		
 	<!-- 认证类 -->
 	<beans:bean id="userDetailService" class="service.UserDetailsServiceImpl">
-		<beans:property name="userService" ref="userService"></beans:property>
+		<beans:property name="userService" ref="userService"/>
 	</beans:bean>
 	
 	<!-- 引用dubbo 服务 -->
@@ -51,5 +51,5 @@
 	<dubbo:reference id="userService" interface="com.maple.service.UserService"/>
 	
 	
-	<beans:bean id="bcryptEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></beans:bean>
+	<beans:bean id="bcryptEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
 </beans:beans>
