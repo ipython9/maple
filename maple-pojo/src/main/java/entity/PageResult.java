@@ -9,6 +9,7 @@ import java.util.List;
  */
 public class PageResult implements Serializable{
 
+    private static final long serialVersionUID = 2766366427300071157L;
     private long total;//总记录数
     private List rows;//当前页记录
 

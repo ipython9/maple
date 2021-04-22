@@ -11,6 +11,7 @@ import java.io.Serializable;
  * @Date: Create in 23:28 2019/4/17
  */
 public class DataModel implements Serializable {
+    private static final long serialVersionUID = -2428768439316963573L;
     private Job job;
     private Workdata workdata;
     //领取的任务报数

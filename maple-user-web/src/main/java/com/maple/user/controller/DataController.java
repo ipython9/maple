@@ -8,6 +8,8 @@ import com.maple.service.JobService;
 import com.maple.service.WorkDataService;
 import entity.PageResult;
 import entity.Result;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,6 +33,8 @@ public class DataController {
     private DataService dataService;
     @Reference
     private WorkDataService workDataService;
+
+    private static final Logger logger =  LoggerFactory.getLogger(DataController.class);
     @RequestMapping("/findAll")
     public List<Job> findAll(){
         String name = SecurityContextHolder.getContext().getAuthentication().getName();

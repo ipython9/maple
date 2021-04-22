@@ -9,6 +9,8 @@ import com.maple.service.CompyService;
 import com.maple.service.JobService;
 import com.maple.service.UserService;
 import entity.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,7 +31,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/user")
 public class  UserController {
-
+	private static final Logger logger =  LoggerFactory.getLogger(DataController.class);
 	@Reference
 	private UserService userService;
 
@@ -47,16 +49,16 @@ public class  UserController {
 
 		return userService.findAll();
 	}
-	
+
 	/**
 	 * 返回全部列表
 	 * @return
 	 */
 	@RequestMapping("/findPage")
-	public PageResult  findPage(int page,int rows){			
+	public PageResult  findPage(int page,int rows){
 		return userService.findPage(page, rows);
 	}
-	
+
 	/**
 	 * 增加
 	 * @param user
@@ -64,6 +66,7 @@ public class  UserController {
 	 */
 	@RequestMapping("/add")
 	public Result add(@RequestBody User user){
+		logger.error("name");
 		BCryptPasswordEncoder passwordEncoder=new BCryptPasswordEncoder();
 		String password = passwordEncoder.encode(user.getPassword());//加密
 		user.setPassword(password);
@@ -77,7 +80,7 @@ public class  UserController {
 			return new Result(false, "增加失败");
 		}
 	}
-	
+
 	/**
 	 * 修改
 	 * @param user
@@ -92,8 +95,8 @@ public class  UserController {
 			e.printStackTrace();
 			return new Result(false, "修改失败");
 		}
-	}	
-	
+	}
+
 	/**
 	 * 获取实体
 	 * @param id
@@ -101,9 +104,9 @@ public class  UserController {
 	 */
 	@RequestMapping("/findOne")
 	public User findOne(Long id){
-		return userService.findOne(id);		
+		return userService.findOne(id);
 	}
-	
+
 	/**
 	 * 批量删除
 	 * @param ids
@@ -113,13 +116,13 @@ public class  UserController {
 	public Result delete(Long [] ids){
 		try {
 			userService.delete(ids);
-			return new Result(true, "删除成功"); 
+			return new Result(true, "删除成功");
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new Result(false, "删除失败");
 		}
 	}
-	
+
 		/**
 	 * 查询+分页
 	 * @param
@@ -130,7 +133,12 @@ public class  UserController {
 	@RequestMapping("/search")
 	public PageResult search(@RequestBody User user, int page, int rows  ){
 		String name=null;
-		return userService.findPage(user, page, rows,name);
+		try {
+			return userService.findPage(user, page, rows,name);
+		}catch (Exception e){
+			logger.error("cuowu{}",e.getMessage());
+		}
+		return null;
 	}
 
 	@RequestMapping("/searchJob")

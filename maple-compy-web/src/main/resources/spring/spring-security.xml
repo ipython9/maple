@@ -8,12 +8,12 @@
 						http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
    
 	<!-- 设置页面不登陆也可以访问 -->
-	<http pattern="/*.html" security="none"></http>
-	<http pattern="/css/**" security="none"></http>
-	<http pattern="/img/**" security="none"></http>
-	<http pattern="/js/**" security="none"></http>
-	<http pattern="/plugins/**" security="none"></http>
-	<http pattern="/compy/add.do" security="none"></http>
+	<http pattern="/*.html" security="none"/>
+	<http pattern="/css/**" security="none"/>
+	<http pattern="/img/**" security="none"/>
+	<http pattern="/js/**" security="none"/>
+	<http pattern="/plugins/**" security="none"/>
+	<http pattern="/compy/add.do" security="none"/>
 
 	<!-- 页面的拦截规则    use-expressions:是否启动SPEL表达式 默认是true -->
 	<http use-expressions="false">
@@ -31,20 +31,20 @@
 	<!-- 认证管理器 -->
 	<authentication-manager>
 		<authentication-provider user-service-ref="userDetailService">	
-			<password-encoder ref="bcryptEncoder"></password-encoder>
+			<password-encoder ref="bcryptEncoder"/>
 		</authentication-provider>	
 	</authentication-manager>
 		
 	<!-- 认证类 -->
 	<beans:bean id="userDetailService" class="service.UserDetailsServiceImpl">
-		<beans:property name="compyService" ref="compyService"></beans:property>
+		<beans:property name="compyService" ref="compyService"/>
 	</beans:bean>
 	
 	<!-- 引用dubbo 服务 -->
 	<dubbo:application name="maple-compy-web" />
 	<dubbo:registry address="zookeeper://47.101.218.112:2181"/>
 	<dubbo:reference id="compyService" interface="com.maple.service.CompyService"/>
-	
-	
-	<beans:bean id="bcryptEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></beans:bean>
+
+
+	<beans:bean id="bcryptEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
 </beans:beans>

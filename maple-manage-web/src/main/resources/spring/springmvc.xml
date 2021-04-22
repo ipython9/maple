@@ -34,5 +34,6 @@
     <dubbo:application name="maple-manage-web" />
     <dubbo:registry address="zookeeper://47.101.218.112:2181"/>
     <dubbo:annotation package="com.maple.manage.controller" />
+    <context:component-scan base-package="com.maple.manage.controller"/>
 
 </beans>

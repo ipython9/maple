@@ -3,7 +3,12 @@ package com.maple.pojo;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * @author 43530
+ */
 public class User implements Serializable {
+
+    private static final long serialVersionUID = -1127082502219214260L;
     private Long id;
 
     private String userid;

@@ -14,6 +14,7 @@ import java.util.List;
  * @Date: Create in 17:42 2019/3/26
  */
 public class JobModel  implements Serializable {
+    private static final long serialVersionUID = 4625167939605773844L;
     private Job job;
     private Compy compy;
     private User user;

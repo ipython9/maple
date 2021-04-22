@@ -11,6 +11,7 @@ import java.util.List;
  * @Date: Create in 12:37 2019/3/26
  */
 public class ResumeModel implements Serializable {
+    private static final long serialVersionUID = -7028952619222353419L;
     private Resume resume;
     private String age;
 

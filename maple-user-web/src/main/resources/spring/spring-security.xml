@@ -18,8 +18,8 @@
 	<http pattern="/user/findAll.do" security="none"/>
 	<http pattern="/user/JobModel.do" security="none"/>
 	<http pattern="/user/CompyModel.do" security="none"/>
-	<http pattern="/user/jobdetail.do" security="none"/>
-	<http pattern="/user/compydetail.do" security="none"/>
+<!--	<http pattern="/user/jobdetail.do" security="none"/>-->
+<!--	<http pattern="/user/compydetail.do" security="none"/>-->
 	<!-- 页面的拦截规则    use-expressions:是否启动SPEL表达式 默认是true -->
 	<http use-expressions="false">
 		<!-- 当前用户必须有ROLE_USER的角色 才可以访问根目录及所属子目录的资源 -->

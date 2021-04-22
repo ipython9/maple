@@ -5,11 +5,11 @@
 						http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
    
 	<!-- 设置页面不登陆也可以访问 -->
-	<http pattern="/*.html" security="none"></http>
-	<http pattern="/css/**" security="none"></http>
-	<http pattern="/img/**" security="none"></http>
-	<http pattern="/js/**" security="none"></http>
-	<http pattern="/plugins/**" security="none"></http>
+	<http pattern="/*.html" security="none"/>
+	<http pattern="/css/**" security="none"/>
+	<http pattern="/img/**" security="none"/>
+	<http pattern="/js/**" security="none"/>
+	<http pattern="/plugins/**" security="none"/>
 
 	<!-- 页面的拦截规则    use-expressions:是否启动SPEL表达式 默认是true -->
 	<http use-expressions="false">

@@ -47,5 +47,5 @@
 	<dubbo:application name="maple-user-web" />
 	<dubbo:registry address="zookeeper://47.101.218.112:2181"/>
 	<dubbo:annotation package="com.maple.user.controller" />
-
+	<context:component-scan base-package="com.maple.user.controller"/>
 </beans>

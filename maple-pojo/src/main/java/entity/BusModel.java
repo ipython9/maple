@@ -14,6 +14,7 @@ import java.util.List;
  * @Date: Create in 20:28 2019/3/26
  */
 public class BusModel extends Compy implements Serializable  {
+    private static final long serialVersionUID = -376500333182209716L;
     private int hrcount;
     private int jobcount;
     private List<User> users;
