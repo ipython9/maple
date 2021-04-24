@@ -56,7 +56,7 @@ public class MongondbClient {
 
 
     public byte[] read(String id) {
-        MongoClient mongoClient = MongoClients.create("mongodb://host1");
+        MongoClient mongoClient = MongoClients.create("mongodb://192.168.92.128:27017");
         MongoDatabase database = mongoClient.getDatabase("imageCollection");
         GridFSBucket gridBucket = GridFSBuckets.create(database);
         GridFSDownloadStream stream = null;
@@ -87,7 +87,7 @@ public class MongondbClient {
     }
 
     public String save(byte[] bytes, String remark) {
-        MongoClient mongoClient = MongoClients.create("mongodb://host1");
+        MongoClient mongoClient = MongoClients.create("mongodb://192.168.92.128:27017");
         MongoDatabase database = mongoClient.getDatabase("imageCollection");
         GridFSBucket gridBucket = GridFSBuckets.create(database);
         ObjectId fileId = null;
